@@ -29,7 +29,7 @@ config_files = FileList.new(File.join('product','config','*.template')).select{|
 app_config = TemplateFile.new(File.join('product','config',local_settings[:app_config_template]))
 
 #target folders that can be run from VS
-solution_file = "solution#{local_settings[:use_vs2010] ? ".vs2010":""}.sln"
+solution_file = "solution.sln"
 
 task :default => ["specs:run"]
 
