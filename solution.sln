@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nothinbutdotnetstore.web.ui
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nothinbutdotnetstore.specs", "product\nothinbutdotnetstore.specs\nothinbutdotnetstore.specs.csproj", "{DF3A63F9-8783-4FDA-8A31-76667E114CEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "..\WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{15826DD2-4C6B-4660-953C-B6FEDE6669F4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "product\WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{15826DD2-4C6B-4660-953C-B6FEDE6669F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
