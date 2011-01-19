@@ -15,8 +15,8 @@ namespace nothinbutdotnetstore.specs.infrastructure
 
             protected override void arrange()
             {
-                the_adapter = an<Logger>();
-                logger_factory = an<LoggerFactory>();
+                the_adapter = mock<Logger>();
+                logger_factory = mock<LoggerFactory>();
 
                 LogFactoryResolver resolver = () => logger_factory;
 

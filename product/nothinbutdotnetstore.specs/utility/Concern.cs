@@ -13,7 +13,7 @@ namespace nothinbutdotnetstore.specs.utility
             act();
         }
 
-        protected Dependency an<Dependency>() where Dependency : class
+        protected Dependency mock<Dependency>() where Dependency : class
         {
             return MockRepository.GenerateStub<Dependency>();
         }

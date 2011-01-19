@@ -16,8 +16,8 @@ namespace nothinbutdotnetstore.specs
 
             protected override void arrange()
             {
-                connection = an<IDbConnection>();
-                command = an<IDbCommand>();
+                connection = mock<IDbConnection>();
+                command = mock<IDbCommand>();
 
                 connection.Stub(x => x.CreateCommand()).Return(command);
 

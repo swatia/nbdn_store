@@ -54,6 +54,7 @@
     <Compile Include="infrastructure\logging\LogFactoryResolver .cs" />
     <Compile Include="infrastructure\logging\Logger.cs" />
     <Compile Include="infrastructure\logging\LoggerFactory.cs" />
+    <Compile Include="infrastructure\logging\simple\TextWriterLogger.cs" />
     <Compile Include="infrastructure\logging\simple\FileLogger .cs" />
   </ItemGroup>
   <ItemGroup />
