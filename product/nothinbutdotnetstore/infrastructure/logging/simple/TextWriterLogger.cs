@@ -16,7 +16,7 @@ namespace nothinbutdotnetstore.infrastructure.logging.simple
 
         public void informational(string message)
         {
-            writer.WriteLine(message);
+            writer.WriteLine(string.Format("{0} - {1}",calling_type.FullName,message));
         }
     }
 }
