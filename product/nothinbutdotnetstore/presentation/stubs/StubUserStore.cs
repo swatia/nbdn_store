@@ -2,11 +2,16 @@
 {
     public class StubUserStore : UserStore
     {
-        EditProfileDetail details;
+        public StubUserStore(EditProfileDetail details)
+        {
+            this.details = details;
+        }
 
         public StubUserStore() : this(create_a_fake_user())
         {
         }
+
+        EditProfileDetail details;
 
         static EditProfileDetail create_a_fake_user()
         {
@@ -16,11 +21,6 @@
                 FirstName = "JP",
                 LastName = "Boodhoo"
             };
-        }
-
-        public StubUserStore(EditProfileDetail details)
-        {
-            this.details = details;
         }
 
         public bool received_a_call { get; set; }

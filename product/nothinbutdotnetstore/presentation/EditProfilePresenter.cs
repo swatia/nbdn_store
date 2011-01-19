@@ -20,6 +20,8 @@ namespace nothinbutdotnetstore.presentation
 
         public void initialize()
         {
+            if (view.IsPostBack) return;
+
             var the_current_user_details = user_store.get_the_current_user_details();
             view.display(the_current_user_details);
         }

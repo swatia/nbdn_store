@@ -42,11 +42,47 @@ namespace nothinbutdotnetstore.specs.presentation
             }
 
         }
+
+        public class when_told_to_initialize_and_it_is__a_postback : BaseConcern
+        {
+            OurEditView view;
+            EditProfilePresenter sut;
+            StubUserStore user_store;
+            EditProfileDetail details;
+
+            protected override void arrange()
+            {
+                view = new OurEditView {IsPostBack = true};
+
+                details = new EditProfileDetail();
+                user_store =  new StubUserStore(details);
+                sut = new EditProfilePresenter(view,user_store);
+            }
+
+            protected override void act()
+            {
+                sut.initialize();
+            }
+
+            [Test]
+            public void should_not_request_the_user_details()
+            {
+                Assert.IsFalse(user_store.received_a_call);
+            }
+
+            [Test]
+            public void should_not_tell_the_view_to_display_details()
+            {
+                Assert.IsNull(view.profile_details);
+            }
+
+        }
     }
 
     public class OurEditView : EditProfileView
     {
         public EditProfileDetail profile_details { get; set; }
+        public bool IsPostBack { get; set; }
 
         public void display(EditProfileDetail current_user_details)
         {
