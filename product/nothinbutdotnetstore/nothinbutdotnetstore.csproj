@@ -59,7 +59,9 @@
     <Compile Include="presentation\EditProfileDetail.cs" />
     <Compile Include="presentation\EditProfilePresenter.cs" />
     <Compile Include="presentation\EditProfileView.cs" />
+    <Compile Include="presentation\IEditProfileDetail.cs" />
     <Compile Include="presentation\stubs\StubUserStore.cs" />
+    <Compile Include="presentation\UserManager.cs" />
     <Compile Include="presentation\UserStore.cs" />
   </ItemGroup>
   <ItemGroup />

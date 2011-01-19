@@ -1,8 +1,8 @@
 using System;
 using nothinbutdotnetstore.presentation;
-using nothinbutdotnetstore.presentation.stubs;
 using nothinbutdotnetstore.specs.utility;
 using NUnit.Framework;
+using Rhino.Mocks;
 
 namespace nothinbutdotnetstore.specs.presentation
 {
@@ -10,18 +10,19 @@ namespace nothinbutdotnetstore.specs.presentation
     {
         public class when_told_to_initialize_and_it_is_not_a_postback : BaseConcern
         {
-            OurEditView view;
+            EditProfileView view;
             EditProfilePresenter sut;
-            StubUserStore user_store;
+            UserStore user_store;
             EditProfileDetail details;
 
             protected override void arrange()
             {
-                view = new OurEditView();
+                view = mock<EditProfileView>();
                 details = new EditProfileDetail();
-                user_store =  new StubUserStore(details);
+                user_store = mock<UserStore>();
+                user_store.Stub(x => x.get_the_current_user_details()).Return(details);
 
-                sut = new EditProfilePresenter(view,user_store);
+                sut = new EditProfilePresenter(view, user_store, null);
             }
 
             protected override void act()
@@ -30,63 +31,51 @@ namespace nothinbutdotnetstore.specs.presentation
             }
 
             [Test]
-            public void should_attempt_to_get_the_current_user_from_the_user_store()
+            public void should_update_the_view_with_the_detail_information()
             {
-                Assert.IsTrue(user_store.received_a_call);
+                Assert.AreEqual(details.FirstName,view.FirstName);
             }
-
-            [Test]
-            public void should_tell_the_view_to_display_the_current_user_information()
-            {
-               Assert.AreEqual(details,view.profile_details);  
-            }
-
         }
 
-        public class when_told_to_initialize_and_it_is__a_postback : BaseConcern
+        public class when_saving_the_user_information : BaseConcern
         {
-            OurEditView view;
+            EditProfileView view;
             EditProfilePresenter sut;
-            StubUserStore user_store;
+            UserStore user_store;
             EditProfileDetail details;
+            UserManager user_manager;
 
             protected override void arrange()
             {
-                view = new OurEditView {IsPostBack = true};
+                view = mock<EditProfileView>();
+                user_store = mock<UserStore>();
+                user_manager = mock<UserManager>();
 
                 details = new EditProfileDetail();
-                user_store =  new StubUserStore(details);
-                sut = new EditProfilePresenter(view,user_store);
+
+                view.FirstName = "this is the first name";
+
+                user_store.Stub(x => x.get_the_current_user_details()).Return(details);
+
+                sut = new EditProfilePresenter(view,user_store,user_manager);
             }
 
             protected override void act()
             {
-                sut.initialize();
+                sut.save();
             }
 
             [Test]
-            public void should_not_request_the_user_details()
+            public void should_update_the_details_of_the_current_user()
             {
-                Assert.IsFalse(user_store.received_a_call);
+                Assert.AreEqual(view.FirstName,details.FirstName);
             }
 
             [Test]
-            public void should_not_tell_the_view_to_display_details()
+            public void should_save_the_current_user_details()
             {
-                Assert.IsNull(view.profile_details);
+               user_manager.AssertWasCalled(x => x.save(details));
             }
-
-        }
-    }
-
-    public class OurEditView : EditProfileView
-    {
-        public EditProfileDetail profile_details { get; set; }
-        public bool IsPostBack { get; set; }
-
-        public void display(EditProfileDetail current_user_details)
-        {
-            profile_details = current_user_details;
         }
     }
 }

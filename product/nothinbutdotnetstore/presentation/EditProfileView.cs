@@ -1,8 +1,7 @@
 namespace nothinbutdotnetstore.presentation
 {
-    public interface EditProfileView
+    public interface EditProfileView : IEditProfileDetail
     {
-        void display(EditProfileDetail current_user_details);
         bool IsPostBack { get; }
     }
 }
