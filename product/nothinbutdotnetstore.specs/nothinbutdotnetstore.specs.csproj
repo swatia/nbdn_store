@@ -62,6 +62,7 @@
     <Compile Include="infrastructure\TextWriterLoggerSpecs.cs" />
     <Compile Include="infrastructure\FileLoggerSpecs.cs" />
     <Compile Include="infrastructure\LogSpecs.cs" />
+    <Compile Include="presentation\EditProfilePresenterSpecs.cs" />
     <Compile Include="utility\Concern.cs" />
   </ItemGroup>
   <ItemGroup>

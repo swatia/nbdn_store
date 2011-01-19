@@ -57,6 +57,13 @@
     <Compile Include="views\CustomerSearchView.aspx.designer.cs">
       <DependentUpon>CustomerSearchView.aspx</DependentUpon>
     </Compile>
+    <Compile Include="views\EditProfile.aspx.cs">
+      <DependentUpon>EditProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="views\EditProfile.aspx.designer.cs">
+      <DependentUpon>EditProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="views\Store.master.cs">
       <DependentUpon>Store.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -72,6 +79,7 @@
     <Content Include="views\Default.aspx" />
     <Content Include="views\DepartmentBrowser.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="views\EditProfile.aspx" />
     <Content Include="views\Footer.ascx" />
     <Content Include="views\ForgotPassword.aspx" />
     <Content Include="Global.asax" />
@@ -120,6 +128,7 @@
     <Content Include="scripts\jquery-1.3.2.js" />
     <Content Include="views\Store.master" />
     <None Include="images\Thumbs.db" />
+    <Content Include="web.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\nothinbutdotnetstore\nothinbutdotnetstore.csproj">

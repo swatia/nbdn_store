@@ -56,6 +56,11 @@
     <Compile Include="infrastructure\logging\LoggerFactory.cs" />
     <Compile Include="infrastructure\logging\simple\TextWriterLogger.cs" />
     <Compile Include="infrastructure\logging\simple\FileLogger .cs" />
+    <Compile Include="presentation\EditProfileDetail.cs" />
+    <Compile Include="presentation\EditProfilePresenter.cs" />
+    <Compile Include="presentation\EditProfileView.cs" />
+    <Compile Include="presentation\stubs\StubUserStore.cs" />
+    <Compile Include="presentation\UserStore.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
