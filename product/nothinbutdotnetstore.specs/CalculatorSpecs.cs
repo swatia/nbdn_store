@@ -34,6 +34,12 @@ namespace nothinbutdotnetstore.specs
             {
                 Assert.That(result, Is.EqualTo(6));
             }
+
+            [Test]
+            public void should_open_a_connection_to_the_database()
+            {
+                
+            }
         }
     }
 }
