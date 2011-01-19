@@ -9,7 +9,6 @@ namespace nothinbutdotnetstore.specs.infrastructure
 {
     public class TextWriterLoggerSpecs
     {
-        
         public class when_logging_an_informational_message : BaseConcern
         {
             Logger sut;
@@ -33,7 +32,32 @@ namespace nothinbutdotnetstore.specs.infrastructure
             {
               Assert.AreEqual("hello\r\n",writer.ToString());
             }
+        }
 
+        public class WhenLoggingInfoTypeIsIncluded : BaseConcern
+        {
+            Logger sut;
+            StringBuilder writer;
+            TextWriter testWriter;
+            const string message = "hello";
+
+            protected override void arrange()
+            {
+                writer = new StringBuilder();
+                testWriter = new StringWriter(writer);
+                sut = new TextWriterLogger(testWriter, typeof(int));
+            }
+
+            protected override void act()
+            {
+                sut.informational(message);
+            }
+
+            [Test]
+            public void should_write_the_message_to_its_writer()
+            {
+                Assert.AreEqual(string.Format("{0} - {1}", typeof(int).FullName, message), writer.ToString());
+            }
         }
     }
 }
