@@ -32,7 +32,7 @@ namespace nothinbutdotnetstore.specs
             [Test]
             public void should_return_the_sum()
             {
-                Assert.That(result, Is.EqualTo(6));
+                result.ShouldEqual(6);
             }
 
             [Test]
