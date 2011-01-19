@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using Rhino.Mocks;
 
 namespace nothinbutdotnetstore.specs.utility
 {
@@ -10,6 +11,11 @@ namespace nothinbutdotnetstore.specs.utility
         {
             arrange();
             act();
+        }
+
+        protected Dependency an<Dependency>() where Dependency : class
+        {
+            return MockRepository.GenerateStub<Dependency>();
         }
 
         protected abstract void act();
