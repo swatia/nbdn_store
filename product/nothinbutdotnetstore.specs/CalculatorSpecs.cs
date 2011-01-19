@@ -32,14 +32,9 @@ namespace nothinbutdotnetstore.specs
             [Test]
             public void should_return_the_sum()
             {
-                result.ShouldEqual(6);
+                Assert.AreEqual(6,result);
             }
 
-            [Test]
-            public void should_open_a_connection_to_the_database()
-            {
-                
-            }
         }
     }
 }
