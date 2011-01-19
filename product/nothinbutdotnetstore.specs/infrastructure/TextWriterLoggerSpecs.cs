@@ -14,12 +14,13 @@ namespace nothinbutdotnetstore.specs.infrastructure
             Logger sut;
             StringBuilder writer;
             TextWriter a_text_writer;
+            string message="Blah";
 
             protected override void arrange()
             {
                 writer = new StringBuilder();
                 a_text_writer = new StringWriter(writer);
-                sut = new TextWriterLogger(a_text_writer);
+                sut = new TextWriterLogger(a_text_writer,typeof(int));
             }
 
             protected override void act()
@@ -28,13 +29,19 @@ namespace nothinbutdotnetstore.specs.infrastructure
             }
 
             [Test]
-            public void should_write_the_message_to_its_writer()
+            public void should_write_out_a_message_containing_the_logged_message()
             {
-              Assert.AreEqual("hello\r\n",writer.ToString());
+                StringAssert.Contains(message,writer.ToString());
+            }
+
+            [Test]
+            public void should_write_out_a_message_containing_the_type()
+            {
+                StringAssert.Contains(typeof(int).FullName,writer.ToString());
             }
         }
 
-        public class WhenLoggingInfoTypeIsIncluded : BaseConcern
+        public class when_logging_informational_with_the_provided_type : BaseConcern
         {
             Logger sut;
             StringBuilder writer;
@@ -54,7 +61,7 @@ namespace nothinbutdotnetstore.specs.infrastructure
             }
 
             [Test]
-            public void should_write_the_message_to_its_writer()
+            public void should_include_the_type_information_in_the_log_message()
             {
                 Assert.AreEqual(string.Format("{0} - {1}", typeof(int).FullName, message), writer.ToString());
             }

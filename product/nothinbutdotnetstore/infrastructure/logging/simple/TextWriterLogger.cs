@@ -6,16 +6,12 @@ namespace nothinbutdotnetstore.infrastructure.logging.simple
     public class TextWriterLogger : Logger
     {
         TextWriter writer;
-        Type callType;
+        Type calling_type;
 
-        public TextWriterLogger(TextWriter writer, Type callType)
+        public TextWriterLogger(TextWriter writer, Type calling_type)
         {
             this.writer = writer;
-            this.callType = callType;
-        }
-
-        public TextWriterLogger(TextWriter writer) : this (writer, null)
-        {
+            this.calling_type = calling_type;
         }
 
         public void informational(string message)
