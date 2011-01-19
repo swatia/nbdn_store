@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 namespace nothinbutdotnetstore.infrastructure.logging.simple
 {
@@ -6,7 +7,16 @@ namespace nothinbutdotnetstore.infrastructure.logging.simple
     {
         public void informational(string message)
         {
-            throw new NotImplementedException();
+            File.AppendAllText(logging_file_path, message);
+        }
+
+        protected string logging_file_path
+        {
+            get
+            {
+                return Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+                                    "the_file.log");
+            }
         }
     }
 }
