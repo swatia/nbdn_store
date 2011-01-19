@@ -20,6 +20,11 @@ namespace nothinbutdotnetstore.specs.utility
 
         protected abstract void act();
 
+        [TearDown]
+        public virtual void cleanup()
+        {
+
+        }
         protected virtual void arrange()
         {
 
