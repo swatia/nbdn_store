@@ -1,19 +1,22 @@
 using System;
 using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace nothinbutdotnetstore.dataaccesslayer
 {
     public class DatabaseConnectionFactory
     {
+        ConnectionStringSettings settings;
+
         public DatabaseConnectionFactory(ConnectionStringSettings settings)
         {
-            throw new NotImplementedException();
+            this.settings = settings;
         }
 
         public IDbConnection create()
         {
-            throw new NotImplementedException();
+            return new SqlConnection(this.settings.ConnectionString);
         }
     }
 }
