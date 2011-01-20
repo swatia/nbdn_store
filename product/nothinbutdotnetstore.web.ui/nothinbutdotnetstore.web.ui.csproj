@@ -50,6 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="views\CustomerBrowser.aspx.cs">
+      <DependentUpon>CustomerBrowser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="views\CustomerSearchView.aspx.cs">
       <DependentUpon>CustomerSearchView.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -67,14 +71,13 @@
     <Content Include="views\BeginCheckout.aspx" />
     <Content Include="views\ChangeCustLogin.aspx" />
     <Content Include="views\ContactUs.aspx" />
+    <Content Include="views\CustomerBrowser.aspx" />
     <Content Include="views\CreateAccount.aspx" />
     <Content Include="views\CustomerSearchView.aspx" />
     <Content Include="views\Default.aspx" />
     <Content Include="views\DepartmentBrowser.aspx" />
-    <Content Include="favicon.ico" />
     <Content Include="views\Footer.ascx" />
     <Content Include="views\ForgotPassword.aspx" />
-    <Content Include="Global.asax" />
     <Content Include="views\OrderConfirm.aspx" />
     <Content Include="views\OrderInfo.aspx" />
     <Content Include="views\OrderThanks.aspx" />

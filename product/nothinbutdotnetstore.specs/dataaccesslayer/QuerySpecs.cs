@@ -1,5 +1,8 @@
+using System.Data.SqlClient;
 using nothinbutdotnetstore.dataaccesslayer;
 using NUnit.Framework;
+using System.Data;
+using nothinbutdotnetstore.specs.utility;
 
 namespace nothinbutdotnetstore.specs.dataaccesslayer
 {
@@ -27,6 +30,21 @@ namespace nothinbutdotnetstore.specs.dataaccesslayer
                 string sut_as_string = sut.ToString();
 
                 Assert.AreEqual(original_query, sut_as_string);
+            }
+        }
+        public class when_applying_to_command
+        {
+            Query query = new Query("SELECT * FROM Customers");
+
+            [Test]
+            public void should_update_the_command_with_the_correct_information()
+            {
+                IDbCommand command = new SqlCommand();
+
+                query.prepare(command);
+
+                Assert.AreEqual(command.CommandText, query.ToString());
+                Assert.AreEqual(command.CommandType, CommandType.Text);
             }
         }
     }

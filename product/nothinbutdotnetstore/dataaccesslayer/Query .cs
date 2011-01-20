@@ -1,4 +1,3 @@
-using System;
 using System.Data;
 
 namespace nothinbutdotnetstore.dataaccesslayer
@@ -17,9 +16,10 @@ namespace nothinbutdotnetstore.dataaccesslayer
             return query.ToString();
         }
 
-        public void apply_to(IDbCommand command_to_populate)
+        public void prepare(IDbCommand command_to_prepare)
         {
-            throw new NotImplementedException();
+            command_to_prepare.CommandType = CommandType.Text;
+            command_to_prepare.CommandText = this.original_query;
         }
 
         public override string ToString()

@@ -10,13 +10,13 @@ namespace nothinbutdotnetstore.specs.dataaccesslayer
     {
         public class when_executing_a_legitimate_query_for_a_table
         {
-            DatabaseGateway sut;
+            DefaultDatabaseGateway sut;
             DataTable results;
 
             [SetUp]
             public void setup()
             {
-                sut = new DatabaseGateway(ObjectMother.database_items.create_db_connection_factory());
+                sut = new DefaultDatabaseGateway(ObjectMother.database_items.create_db_connection_factory());
 
             }
 
@@ -29,7 +29,7 @@ namespace nothinbutdotnetstore.specs.dataaccesslayer
                     var db_table = new DbTable("Customers");
                     DbUtility.generate_rows_for(db_table, 100);
 
-                    results = sut.execute_query(db_table.all_query());
+                    results = sut.run(db_table.all_query());
                     Assert.AreEqual(100,results.Rows.Count);
                 }
                 
