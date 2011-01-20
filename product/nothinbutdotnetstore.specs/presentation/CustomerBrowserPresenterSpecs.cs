@@ -22,9 +22,9 @@ namespace nothinbutdotnetstore.specs.presentation
                 results_to_be_returned_by_the_repository = Enumerable.Range(1, 100).Select(x => new Customer()).ToList();
                 customer_repository = new OurRepository(results_to_be_returned_by_the_repository);
 
-                new CustomerBrowserPresenter(view,customer_repository).initialize();
+                new CustomerBrowserPresenter( new OurCustomerBrowserView(),customer_repository);
 
-               Assert.AreEqual(results_to_be_returned_by_the_repository,view.customers);
+                Assert.AreEqual(results_to_be_returned_by_the_repository,view.customers);
             } 
         }
     }
