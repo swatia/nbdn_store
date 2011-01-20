@@ -1,4 +1,5 @@
 using System.Data;
+using nothinbutdotnetstore.dataaccesslayer;
 using nothinbutdotnetstore.model;
 
 namespace nothinbutdotnetstore.tasks
@@ -9,9 +10,9 @@ namespace nothinbutdotnetstore.tasks
         {
             return new Customer
             {
-                Address = data_row["address"].ToString(),
-                FirstName = data_row["FirstName"].ToString(),
-                LastName = data_row["LastName"].ToString()
+                Address = data_row[Tables.Customers.Address].ToString(),
+                FirstName = data_row[Tables.Customers.FirstName].ToString(),
+                LastName = data_row[Tables.Customers.LastName].ToString()
             };
         }
     }
