@@ -45,15 +45,38 @@ namespace nothinbutdotnetstore.specs.dataaccesslayer
         public class when_creating_a_connection_from_an_invalid_connection_settings_item
         {
             [Test]
-            public void should_throw_a_custom_exception()
+            public void should_fail_at_construction_if_the_provider_name_is_invalid()
             {
                 var settings = new ConnectionStringSettings("blah",
                                                             "data source=(local);Initial catalog=blah;Provider=SQLOleDb");
                 settings.ProviderName = "InvalidProvider";
 
+
+                Assert.Catch<InvalidConnectionSettingsException>(() => new DatabaseConnectionFactory(settings)); 
+            }
+            [Test]
+            public void should_fail_if_the_connection_string_is_invalid()
+            {
+                var settings = new ConnectionStringSettings("blah",
+                                                            "data source=(local);Initial catalog=blah;Providesdfdsfr=SQLOleDb");
+                settings.ProviderName = "System.Data.OleDb";
+
                 var sut = new DatabaseConnectionFactory(settings);
 
                 Assert.Catch(typeof(InvalidConnectionSettingsException), () => sut.create()); 
+            }
+
+            [Test]
+            public void should_fail_and_provide_access_to_the_underlying_exception_for_a_good_stack_trace()
+            {
+                var settings = new ConnectionStringSettings("blah",
+                                                            "data source=(local);Initial catalog=blah;Providesdfdsfr=SQLOleDb");
+                settings.ProviderName = "System.Data.OleDb";
+
+                var sut = new DatabaseConnectionFactory(settings);
+
+                var exception = Assert.Catch(typeof(InvalidConnectionSettingsException), () => sut.create()); 
+                Assert.IsNotNull(exception.InnerException);
             }
         }
     }

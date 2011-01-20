@@ -1,3 +1,4 @@
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.Common;
@@ -17,7 +18,14 @@ namespace nothinbutdotnetstore.dataaccesslayer
 
         public IDbConnection create()
         {
-            return create_a_connection_using_the_current_provider();
+            try
+            {
+                return create_a_connection_using_the_current_provider();
+            }
+            catch (Exception e)
+            {
+                throw  new InvalidConnectionSettingsException();
+            }
         }
 
         IDbConnection create_a_connection_using_the_current_provider()
@@ -29,7 +37,14 @@ namespace nothinbutdotnetstore.dataaccesslayer
 
         DbProviderFactory get_the_connection_provider_using_the(ConnectionStringSettings connection_string_settings)
         {
-            return DbProviderFactories.GetFactory(settings.ProviderName);
+            try
+            {
+                return DbProviderFactories.GetFactory(settings.ProviderName);
+            }
+            catch (Exception e)
+            {
+                throw new InvalidConnectionSettingsException();  
+            }
         }
     }
 }
