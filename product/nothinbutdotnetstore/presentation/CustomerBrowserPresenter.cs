@@ -1,11 +1,9 @@
-using System;
 using nothinbutdotnetstore.tasks;
 
 namespace nothinbutdotnetstore.presentation
 {
     public class CustomerBrowserPresenter
     {
-
         CustomerBrowserView view;
         CustomerRepository customer_repository;
 
@@ -16,7 +14,6 @@ namespace nothinbutdotnetstore.presentation
 
         public void initialize()
         {
-            
         }
     }
 }
