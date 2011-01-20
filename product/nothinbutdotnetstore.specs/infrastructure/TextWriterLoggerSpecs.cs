@@ -25,7 +25,7 @@ namespace nothinbutdotnetstore.specs.infrastructure
 
             protected override void act()
             {
-                sut.informational("hello");
+                sut.informational(message);
             }
 
             [Test]
@@ -63,7 +63,7 @@ namespace nothinbutdotnetstore.specs.infrastructure
             [Test]
             public void should_include_the_type_information_in_the_log_message()
             {
-                Assert.AreEqual(string.Format("{0} - {1}", typeof(int).FullName, message), writer.ToString());
+                Assert.AreEqual(string.Format("{0} - {1}\r\n", typeof(int).FullName, message), writer.ToString());
             }
         }
     }

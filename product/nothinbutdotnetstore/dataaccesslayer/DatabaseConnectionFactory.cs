@@ -24,7 +24,7 @@ namespace nothinbutdotnetstore.dataaccesslayer
             }
             catch (Exception e)
             {
-                throw  new InvalidConnectionSettingsException("Incorrect Provider String", e);
+                throw  new InvalidConnectionSettingsException(e);
             }
         }
 
