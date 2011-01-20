@@ -37,10 +37,12 @@ namespace nothinbutdotnetstore.specs.dataaccesslayer
             Query query = new Query("SELECT * FROM Customers");
 
             [Test]
-            public void should_return_command_with_command_text()
+            public void should_update_the_command_with_the_correct_information()
             {
                 IDbCommand command = new SqlCommand();
-                query.apply_to(command);
+
+                query.prepare(command);
+
                 Assert.AreEqual(command.CommandText, query.ToString());
                 Assert.AreEqual(command.CommandType, CommandType.Text);
             }

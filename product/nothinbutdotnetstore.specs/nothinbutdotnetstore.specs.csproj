@@ -61,6 +61,8 @@
     <Compile Include="dataaccesslayer\DatabaseConnectionFactorySpecs.cs" />
     <Compile Include="dataaccesslayer\DatabaseGatewaySpecs.cs" />
     <Compile Include="dataaccesslayer\QuerySpecs.cs" />
+    <Compile Include="tasks\CustomerMapperSpecs.cs" />
+    <Compile Include="tasks\CustomerRepositorySpecs.cs" />
     <Compile Include="utility\AssertionExtensions.cs" />
     <Compile Include="infrastructure\TextWriterLoggerSpecs.cs" />
     <Compile Include="infrastructure\LogSpecs.cs" />

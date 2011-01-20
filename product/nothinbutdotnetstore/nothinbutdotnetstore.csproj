@@ -50,7 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dataaccesslayer\DatabaseConnectionFactory.cs" />
-    <Compile Include="dataaccesslayer\DatabaseGateway.cs" />
+    <Compile Include="dataaccesslayer\DefaultDatabaseGateway.cs" />
     <Compile Include="dataaccesslayer\InvalidConnectionSettingsException.cs" />
     <Compile Include="dataaccesslayer\Query .cs" />
     <Compile Include="infrastructure\logging\Log.cs" />
@@ -58,6 +58,9 @@
     <Compile Include="infrastructure\logging\Logger.cs" />
     <Compile Include="infrastructure\logging\LoggerFactory.cs" />
     <Compile Include="infrastructure\logging\simple\TextWriterLogger.cs" />
+    <Compile Include="model\Customer.cs" />
+    <Compile Include="tasks\CustomerMapper.cs" />
+    <Compile Include="tasks\CustomerRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
