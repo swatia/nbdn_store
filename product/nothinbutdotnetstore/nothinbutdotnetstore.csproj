@@ -52,7 +52,9 @@
     <Compile Include="dataaccesslayer\DatabaseConnectionFactory.cs" />
     <Compile Include="dataaccesslayer\DefaultDatabaseGateway.cs" />
     <Compile Include="dataaccesslayer\InvalidConnectionSettingsException.cs" />
+    <Compile Include="dataaccesslayer\ObjectMother.cs" />
     <Compile Include="dataaccesslayer\Query .cs" />
+    <Compile Include="dataaccesslayer\stubs\StubDatabaseGateway.cs" />
     <Compile Include="dataaccesslayer\Tables.cs" />
     <Compile Include="infrastructure\logging\Log.cs" />
     <Compile Include="infrastructure\logging\LogFactoryResolver .cs" />
@@ -65,7 +67,9 @@
     <Compile Include="tasks\CustomerMapper.cs" />
     <Compile Include="tasks\DefaultCustomerRepository.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="tasks\stubs\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

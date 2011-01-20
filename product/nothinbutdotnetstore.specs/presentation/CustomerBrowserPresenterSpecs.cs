@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using nothinbutdotnetstore.model;
@@ -19,13 +18,16 @@ namespace nothinbutdotnetstore.specs.presentation
             [Test]
             public void should_tell_the_view_to_display_the_customers_retrieved_by_the_customer_repository()
             {
+                view = new OurCustomerBrowserView();
                 results_to_be_returned_by_the_repository = Enumerable.Range(1, 100).Select(x => new Customer()).ToList();
                 customer_repository = new OurRepository(results_to_be_returned_by_the_repository);
 
-                new CustomerBrowserPresenter( new OurCustomerBrowserView(),customer_repository);
+                var sut = new CustomerBrowserPresenter(view, customer_repository);
 
-                Assert.AreEqual(results_to_be_returned_by_the_repository,view.customers);
-            } 
+                sut.initialize();
+
+                Assert.AreEqual(results_to_be_returned_by_the_repository, view.customers);
+            }
         }
     }
 
@@ -47,6 +49,7 @@ namespace nothinbutdotnetstore.specs.presentation
     class OurCustomerBrowserView : CustomerBrowserView
     {
         public IEnumerable<Customer> customers { get; set; }
+
         public void display(IEnumerable<Customer> customers)
         {
             this.customers = customers;

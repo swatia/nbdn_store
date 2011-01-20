@@ -1,12 +1,11 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
-using nothinbutdotnetstore.dataaccesslayer;
 using nothinbutdotnetstore.model;
 
-namespace nothinbutdotnetstore.specs.utility
+namespace nothinbutdotnetstore.dataaccesslayer
 {
     public class ObjectMother
     {
@@ -35,6 +34,9 @@ namespace nothinbutdotnetstore.specs.utility
                 data_table.Columns.Add(Tables.Customers.FirstName);
                 data_table.Columns.Add(Tables.Customers.LastName);
                 data_table.Columns.Add(Tables.Customers.Address);
+                data_table.Columns.Add(Tables.Customers.Age);
+                data_table.Columns.Add(Tables.Customers.BirthDay);
+                data_table.Columns.Add(Tables.Customers.IsPreferred);
 
                 customers.ToList().ForEach(x => append_to(data_table, x));
                 return data_table;
@@ -43,7 +45,8 @@ namespace nothinbutdotnetstore.specs.utility
             static void append_to(DataTable data_table, Customer customer)
             {
                 data_table.Rows.Add(customer.FirstName, customer.LastName,
-                                    customer.Address);
+                                    customer.Address,customer.Age,customer.BirthDay,
+                                    customer.IsPreferred);
             }
 
         }
@@ -56,7 +59,10 @@ namespace nothinbutdotnetstore.specs.utility
                 {
                     FirstName = number.ToString("FirstName 0"),
                     LastName = number.ToString("LastName 0"),
-                    Address = number.ToString("Address 0")
+                    Address = number.ToString("Address 0"),
+                    Age = number+1,
+                    BirthDay = DateTime.Now.AddDays(number),
+                    IsPreferred = number %2 ==0
                 };
             }
 

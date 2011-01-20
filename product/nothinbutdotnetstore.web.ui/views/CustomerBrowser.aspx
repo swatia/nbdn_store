@@ -7,16 +7,22 @@ CodeFile="CustomerBrowser.aspx.cs" MasterPageFile="Store.master" %>
             <table>            
             <%--each customer should go here--%>
             <tr class="ListItem">
-               		 <td>                     
-                   FirstName
+               		 <td> FirstName
                 	</td>
-               		 <td>                     
-                   LastName
+               		 <td> LastName
                 	</td>
-               		 <td>                     
-                   Address
+               		 <td> Address
                 	</td>
            	 </tr>        
+
+             <% foreach (var customer in details) {%>
+              <tr>
+                <td><%= customer.FirstName %></td>
+                <td><%= customer.LastName %></td>
+                <td><%= customer.Address %></td>
+                <td><%= customer.Age %></td>
+              </tr>
+             <% }%>
            	
 	    </table>            
 </asp:Content>

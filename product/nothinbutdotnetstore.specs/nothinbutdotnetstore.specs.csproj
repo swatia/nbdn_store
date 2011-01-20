@@ -70,7 +70,6 @@
     <Compile Include="utility\Concern.cs" />
     <Compile Include="utility\DbTable.cs" />
     <Compile Include="utility\DbUtility.cs" />
-    <Compile Include="utility\ObjectMother.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\nothinbutdotnetstore\nothinbutdotnetstore.csproj">

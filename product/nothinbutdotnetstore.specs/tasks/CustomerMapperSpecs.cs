@@ -1,10 +1,8 @@
-using System.Data;
+using System.Linq;
 using nothinbutdotnetstore.dataaccesslayer;
 using nothinbutdotnetstore.model;
-using nothinbutdotnetstore.specs.utility;
 using nothinbutdotnetstore.tasks;
 using NUnit.Framework;
-using System.Linq;
 
 namespace nothinbutdotnetstore.specs.tasks
 {
@@ -21,13 +19,17 @@ namespace nothinbutdotnetstore.specs.tasks
 
                 var sut = new CustomerMapper();
                 var result = sut.map_from(data_table.Rows[0]);
-
                 is_equal(customers[0], result);
             }
 
             void is_equal(Customer expected, Customer actual)
             {
                 Assert.AreEqual(expected.FirstName, actual.FirstName);
+                Assert.AreEqual(expected.LastName, actual.LastName);
+                Assert.AreEqual(expected.Address, actual.Address);
+                Assert.AreEqual(expected.Age, actual.Age);
+                Assert.AreEqual(expected.BirthDay.Date, actual.BirthDay.Date);
+                Assert.AreEqual(expected.IsPreferred, actual.IsPreferred);
             }
         }
     }

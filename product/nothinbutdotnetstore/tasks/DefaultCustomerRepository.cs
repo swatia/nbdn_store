@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using nothinbutdotnetstore.dataaccesslayer;
+using nothinbutdotnetstore.dataaccesslayer.stubs;
 using nothinbutdotnetstore.model;
 
 namespace nothinbutdotnetstore.tasks
@@ -15,6 +16,11 @@ namespace nothinbutdotnetstore.tasks
     {
         DatabaseGateway gateway;
         CustomerMapper customer_mapper;
+
+        public DefaultCustomerRepository():this(
+            new StubDatabaseGateway(),new CustomerMapper())
+        {
+        }
 
         public DefaultCustomerRepository(DatabaseGateway gateway, CustomerMapper customer_mapper)
         {
