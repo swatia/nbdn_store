@@ -34,7 +34,7 @@ namespace nothinbutdotnetstore.specs.tasks
 
             void is_equal(Customer expected, Customer actual)
             {
-                Assert.AreSame(expected.FirstName, actual.FirstName);
+                Assert.AreEqual(expected.FirstName, actual.FirstName);
             }
         }
     }
