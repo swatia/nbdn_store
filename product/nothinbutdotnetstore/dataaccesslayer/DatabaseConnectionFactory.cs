@@ -10,6 +10,10 @@ namespace nothinbutdotnetstore.dataaccesslayer
         ConnectionStringSettings settings;
         DbProviderFactory provider;
 
+        public DatabaseConnectionFactory():this(ConfigurationManager.ConnectionStrings["Active"])
+        {
+        }
+
         public DatabaseConnectionFactory(ConnectionStringSettings settings)
         {
             this.settings = settings;

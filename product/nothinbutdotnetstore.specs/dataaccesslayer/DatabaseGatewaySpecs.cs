@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
 using System.Data;
-using System.Linq;
+using System.Transactions;
 using nothinbutdotnetstore.dataaccesslayer;
 using nothinbutdotnetstore.specs.utility;
 using NUnit.Framework;
@@ -15,38 +14,25 @@ namespace nothinbutdotnetstore.specs.dataaccesslayer
             DataTable results;
 
             [SetUp]
-            public void Setup()
+            public void setup()
             {
                 sut = new DatabaseGateway(ObjectMother.database_items.create_db_connection_factory());
-                results = sut.execute_query("select * from customers");
+
             }
 
             [Test]
-            public void should_return_a_data_table()
+            public void should_return_a_datatable_with_the_correct_number_of_rows()
             {
-                Assert.IsNotNull(results);
-            }
-
-            [Test]
-            public void should_return_4_rows_of_data_table()
-            {
-                Assert.AreEqual(4,results.Rows.Count);
-            }
-
-            [Test]
-            public void should_return_first_name_last_name()
-            {
-                var dictionary = new Dictionary<string, int>();
-                dictionary.Add(new DbQuery("Select * from customers", 20));
-                dictionary.Add(new DbQuery("select * from departments", 33));
-                dictionary.Add(new DbQuery("select * from products", 57));
-
-                dictionary.Values.ToList().ForEach((query, count) =>
+                var transaction_scope = new TransactionScope();
+                using (transaction_scope)
                 {
-                    DbUtility.generate_rows_for();
-                });
-                DbUtility.generate_rows_for("Customers", 20);
+                    var db_table = new DbTable("Customers");
+                    DbUtility.generate_rows_for(db_table, 100);
 
+                    results = sut.execute_query(db_table.all_query());
+                    Assert.AreEqual(100,results.Rows.Count);
+                }
+                
             }
         }
     }

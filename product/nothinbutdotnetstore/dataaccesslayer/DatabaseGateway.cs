@@ -1,20 +1,27 @@
 using System.Data;
-using System.Linq;
 
 namespace nothinbutdotnetstore.dataaccesslayer
 {
     public class DatabaseGateway
     {
+        DatabaseConnectionFactory connection_factory;
+
         public DatabaseGateway(DatabaseConnectionFactory connection_factory)
         {
+            this.connection_factory = connection_factory;
         }
 
-        public DataTable execute_query(string command)
+        public DataTable execute_query(Query query)
         {
-            var data_table = new DataTable();
-            data_table.Columns.Add("sdfsdf");
-            Enumerable.Range(1, 4).ToList().ForEach(x => data_table.Rows.Add(data_table.NewRow()));
-            return data_table;
+            using (var connection = connection_factory.create())
+            using (var select_command = connection.CreateCommand())
+            using (var reader = select_command.ExecuteReader())
+            {
+//                query.apply_to(select_command);
+                var table = new DataTable();
+                table.Load(reader);
+                return table;
+            }
         }
     }
 }
