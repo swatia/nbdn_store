@@ -20,6 +20,7 @@ namespace nothinbutdotnetstore.specs.tasks
                 };
 
                 var data_table = new DataTable();
+
                 data_table.Columns.Add("FirstName");
                 data_table.Columns.Add("LastName");
                 data_table.Columns.Add("Address");
