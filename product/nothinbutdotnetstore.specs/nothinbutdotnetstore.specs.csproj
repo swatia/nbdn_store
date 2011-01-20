@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dataaccesslayer\DatabaseConnectionFactorySpecs.cs" />
+    <Compile Include="dataaccesslayer\DatabaseGatewaySpecs.cs" />
     <Compile Include="utility\AssertionExtensions.cs" />
     <Compile Include="infrastructure\TextWriterLoggerSpecs.cs" />
     <Compile Include="infrastructure\LogSpecs.cs" />
