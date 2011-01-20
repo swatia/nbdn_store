@@ -1,4 +1,5 @@
 using System.Data;
+using System.Linq;
 
 namespace nothinbutdotnetstore.dataaccesslayer
 {
@@ -10,7 +11,10 @@ namespace nothinbutdotnetstore.dataaccesslayer
 
         public DataTable execute_query(string command)
         {
-            return new DataTable();
+            var data_table = new DataTable();
+            data_table.Columns.Add("sdfsdf");
+            Enumerable.Range(1, 4).ToList().ForEach(x => data_table.Rows.Add(data_table.NewRow()));
+            return data_table;
         }
     }
 }
