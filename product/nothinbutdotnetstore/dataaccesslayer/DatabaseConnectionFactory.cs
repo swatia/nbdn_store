@@ -43,7 +43,7 @@ namespace nothinbutdotnetstore.dataaccesslayer
             }
             catch (Exception e)
             {
-                throw new InvalidConnectionSettingsException("Incorrect Connection String", e);  
+                throw new InvalidConnectionSettingsException(e);  
             }
         }
     }
