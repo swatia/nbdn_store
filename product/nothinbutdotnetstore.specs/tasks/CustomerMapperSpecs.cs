@@ -1,8 +1,10 @@
 using System.Data;
 using nothinbutdotnetstore.dataaccesslayer;
 using nothinbutdotnetstore.model;
+using nothinbutdotnetstore.specs.utility;
 using nothinbutdotnetstore.tasks;
 using NUnit.Framework;
+using System.Linq;
 
 namespace nothinbutdotnetstore.specs.tasks
 {
@@ -13,25 +15,14 @@ namespace nothinbutdotnetstore.specs.tasks
             [Test]
             public void should_populate_the_customer_with_the_correct_details()
             {
-                var jp = new Customer
-                {
-                    Address = "the address",
-                    FirstName = "JP",
-                    LastName = "Boodhoo"
-                };
+                var customers = ObjectMother.ReportingModels.create_customers(1).ToList();
 
-                var data_table = new DataTable();
-
-                data_table.Columns.Add(Tables.Customers.FirstName);
-                data_table.Columns.Add(Tables.Customers.LastName);
-                data_table.Columns.Add(Tables.Customers.Address);
-
-                data_table.Rows.Add(jp.FirstName, jp.LastName, jp.Address);
+                var data_table = ObjectMother.database_items.create_table_of_customers(customers);
 
                 var sut = new CustomerMapper();
                 var result = sut.map_from(data_table.Rows[0]);
 
-                is_equal(jp, result);
+                is_equal(customers[0], result);
             }
 
             void is_equal(Customer expected, Customer actual)
