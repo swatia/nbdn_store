@@ -39,6 +39,22 @@ namespace nothinbutdotnetstore.specs.dataaccesslayer
                 Assert.IsInstanceOf(typeof(OleDbConnection), connection);
                 StringAssert.AreEqualIgnoringCase(settings.ConnectionString, connection.ConnectionString);
             }
+
+        }
+
+        public class when_creating_a_connection_from_an_invalid_connection_settings_item
+        {
+            [Test]
+            public void should_throw_a_custom_exception()
+            {
+                var settings = new ConnectionStringSettings("blah",
+                                                            "data source=(local);Initial catalog=blah;Provider=SQLOleDb");
+                settings.ProviderName = "InvalidProvider";
+
+                var sut = new DatabaseConnectionFactory(settings);
+
+                Assert.Catch(typeof(InvalidConnectionSettingsException), () => sut.create()); 
+            }
         }
     }
 }
