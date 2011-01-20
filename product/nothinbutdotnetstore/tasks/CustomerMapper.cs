@@ -8,7 +8,12 @@ namespace nothinbutdotnetstore.tasks
     {
         public Customer map_from(DataRow data_row)
         {
-            throw new NotImplementedException();
+            var ret = new Customer();
+            ret.FirstName = data_row[Constants.Tables.Customers.FirstName] as string;
+            ret.LastName = data_row[Constants.Tables.Customers.LastName] as string;
+            ret.Address = data_row[Constants.Tables.Customers.Address] as string;
+
+            return ret;
         }
     }
 }
