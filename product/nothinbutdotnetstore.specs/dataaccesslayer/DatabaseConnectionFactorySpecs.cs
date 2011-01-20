@@ -29,8 +29,8 @@ namespace nothinbutdotnetstore.specs.dataaccesslayer
             public void should_create_a_connection_that_matches_the_expected_provider_type()
             {
                 var settings = new ConnectionStringSettings("blah",
-                                                            "data source=(local);Initial catalog=blah;Integrated Security=SSPI");
-                settings.ProviderName = "System.Data.OleDbClient";
+                                                            "data source=(local);Initial catalog=blah;Provider=SQLOleDb");
+                settings.ProviderName = "System.Data.OleDb";
 
                 var sut = new DatabaseConnectionFactory(settings);
 
