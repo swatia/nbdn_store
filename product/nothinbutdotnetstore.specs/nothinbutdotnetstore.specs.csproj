@@ -53,16 +53,20 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dataaccesslayer\DatabaseConnectionFactorySpecs.cs" />
+    <Compile Include="dataaccesslayer\DatabaseConnectionSpecs.cs" />
     <Compile Include="dataaccesslayer\DatabaseGatewaySpecs.cs" />
     <Compile Include="utility\AssertionExtensions.cs" />
     <Compile Include="infrastructure\TextWriterLoggerSpecs.cs" />
     <Compile Include="infrastructure\LogSpecs.cs" />
     <Compile Include="utility\Concern.cs" />
+    <Compile Include="utility\DbTable.cs" />
+    <Compile Include="utility\DbUtility.cs" />
     <Compile Include="utility\ObjectMother.cs" />
   </ItemGroup>
   <ItemGroup>

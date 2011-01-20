@@ -49,6 +49,7 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dataaccesslayer\DatabaseConnection.cs" />
     <Compile Include="dataaccesslayer\DatabaseConnectionFactory.cs" />
     <Compile Include="dataaccesslayer\DatabaseGateway.cs" />
     <Compile Include="dataaccesslayer\InvalidConnectionSettingsException.cs" />
