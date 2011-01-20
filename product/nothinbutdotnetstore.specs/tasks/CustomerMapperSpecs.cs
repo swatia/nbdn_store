@@ -1,4 +1,5 @@
 using System.Data;
+using nothinbutdotnetstore.dataaccesslayer;
 using nothinbutdotnetstore.model;
 using nothinbutdotnetstore.tasks;
 using NUnit.Framework;
@@ -21,9 +22,9 @@ namespace nothinbutdotnetstore.specs.tasks
 
                 var data_table = new DataTable();
 
-                data_table.Columns.Add("FirstName");
-                data_table.Columns.Add("LastName");
-                data_table.Columns.Add("Address");
+                data_table.Columns.Add(Tables.Customers.FirstName);
+                data_table.Columns.Add(Tables.Customers.LastName);
+                data_table.Columns.Add(Tables.Customers.Address);
 
                 data_table.Rows.Add(jp.FirstName, jp.LastName, jp.Address);
 
