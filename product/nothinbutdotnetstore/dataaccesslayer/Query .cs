@@ -19,7 +19,8 @@ namespace nothinbutdotnetstore.dataaccesslayer
 
         public void apply_to(IDbCommand command_to_populate)
         {
-            throw new NotImplementedException();
+            command_to_populate.CommandType = CommandType.Text;
+            command_to_populate.CommandText = this.original_query;
         }
 
         public override string ToString()
