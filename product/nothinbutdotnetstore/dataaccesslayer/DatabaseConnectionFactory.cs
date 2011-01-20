@@ -13,19 +13,12 @@ namespace nothinbutdotnetstore.dataaccesslayer
         public DatabaseConnectionFactory(ConnectionStringSettings settings)
         {
             this.settings = settings;
-            provider = get_the_connection_provider_using_the(settings);
+            provider = create_with_exception_handling(() => get_the_connection_provider_using_the(settings));
         }
 
         public IDbConnection create()
         {
-            try
-            {
-                return create_a_connection_using_the_current_provider();
-            }
-            catch (Exception e)
-            {
-                throw  new InvalidConnectionSettingsException(e);
-            }
+            return create_with_exception_handling(() => create_a_connection_using_the_current_provider());
         }
 
         IDbConnection create_a_connection_using_the_current_provider()
@@ -37,13 +30,18 @@ namespace nothinbutdotnetstore.dataaccesslayer
 
         DbProviderFactory get_the_connection_provider_using_the(ConnectionStringSettings connection_string_settings)
         {
+            return DbProviderFactories.GetFactory(settings.ProviderName);
+        }
+
+        public ReturnType create_with_exception_handling<ReturnType>(Func<ReturnType> factory)
+        {
             try
             {
-                return DbProviderFactories.GetFactory(settings.ProviderName);
+                return factory();
             }
             catch (Exception e)
             {
-                throw new InvalidConnectionSettingsException(e);  
+                throw new InvalidConnectionSettingsException(e);
             }
         }
     }
