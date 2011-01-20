@@ -49,10 +49,10 @@
     <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dataaccesslayer\DatabaseConnection.cs" />
     <Compile Include="dataaccesslayer\DatabaseConnectionFactory.cs" />
     <Compile Include="dataaccesslayer\DatabaseGateway.cs" />
     <Compile Include="dataaccesslayer\InvalidConnectionSettingsException.cs" />
+    <Compile Include="dataaccesslayer\Query .cs" />
     <Compile Include="infrastructure\logging\Log.cs" />
     <Compile Include="infrastructure\logging\LogFactoryResolver .cs" />
     <Compile Include="infrastructure\logging\Logger.cs" />

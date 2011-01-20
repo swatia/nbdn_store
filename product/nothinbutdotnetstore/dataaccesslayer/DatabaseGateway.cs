@@ -11,24 +11,17 @@ namespace nothinbutdotnetstore.dataaccesslayer
             this.connection_factory = connection_factory;
         }
 
-        public DataTable execute_query(string query)
+        public DataTable execute_query(Query query)
         {
             using (var connection = connection_factory.create())
-            using (var select_command = create_command_using(connection, query))
+            using (var select_command = connection.CreateCommand())
             using (var reader = select_command.ExecuteReader())
             {
+//                query.apply_to(select_command);
                 var table = new DataTable();
                 table.Load(reader);
                 return table;
             }
-        }
-
-        IDbCommand create_command_using(IDbConnection connection, string query)
-        {
-            var command = connection.CreateCommand();
-            command.CommandText = query;
-            command.CommandType = CommandType.Text;
-            return command;
         }
     }
 }

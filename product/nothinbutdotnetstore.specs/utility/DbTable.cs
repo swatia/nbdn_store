@@ -1,4 +1,5 @@
 ﻿using System;
+using nothinbutdotnetstore.dataaccesslayer;
 
 namespace nothinbutdotnetstore.specs.utility
 {
@@ -11,9 +12,9 @@ namespace nothinbutdotnetstore.specs.utility
             this.table_name = table_name;
         }
 
-        public string all_query()
+        public Query all_query()
         {
-            return String.Format("SELECT * FROM {0}", table_name);
+            return new Query(String.Format("SELECT * FROM {0}", table_name));
         }
     }
 }
