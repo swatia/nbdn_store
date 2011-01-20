@@ -1,17 +1,16 @@
-using System;
 using System.Data;
 
 namespace nothinbutdotnetstore.dataaccesslayer
 {
     public class DatabaseGateway
     {
-        public DatabaseGateway(IDbConnection connection)
+        public DatabaseGateway(DatabaseConnectionFactory connection_factory)
         {
         }
 
         public DataTable execute_query(string command)
         {
-            throw new NotImplementedException();
+            return new DataTable();
         }
     }
 }

@@ -1,7 +1,5 @@
-﻿using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
-using nothinbutdotnetstore.dataaccesslayer;
+﻿using nothinbutdotnetstore.dataaccesslayer;
+using nothinbutdotnetstore.specs.utility;
 using NUnit.Framework;
 
 namespace nothinbutdotnetstore.specs.dataaccesslayer
@@ -13,16 +11,9 @@ namespace nothinbutdotnetstore.specs.dataaccesslayer
             [Test]
             public void should_return_a_data_table()
             {
-                var settings = new ConnectionStringSettings("blah",
-                                                            "data source=(local);Initial catalog=blah;Integrated Security=SSPI");
-                settings.ProviderName = "System.Data.SqlClient";
-                DatabaseConnectionFactory dbConnectionFactory = new DatabaseConnectionFactory(settings);
-                var connection = dbConnectionFactory.create();
-
-                var sut = new DatabaseGateway(connection);
+                var sut = new DatabaseGateway(ObjectMother.database_items.create_db_connection_factory());
                 var results = sut.execute_query("select * from customers");
-
-                Assert.IsInstanceOf(typeof(DataTable), results);
+                Assert.IsNotNull(results);
             }
         }
     }
