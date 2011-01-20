@@ -1,6 +1,7 @@
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.Common;
 
 namespace nothinbutdotnetstore.dataaccesslayer
 {
@@ -15,7 +16,17 @@ namespace nothinbutdotnetstore.dataaccesslayer
 
         public IDbConnection create()
         {
-            return new SqlConnection(this.settings.ConnectionString);
+
+            // Construct an ADO.NET provider
+            var providerFactory = DbProviderFactories.GetFactory(settings.ProviderName);
+
+            // Construct and open connection
+            IDbConnection connection = providerFactory.CreateConnection();
+            connection.ConnectionString = settings.ConnectionString;
+
+            return connection;
+
+
         }
     }
 }
