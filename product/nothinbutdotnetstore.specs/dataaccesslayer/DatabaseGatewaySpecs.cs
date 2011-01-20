@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data;
 using nothinbutdotnetstore.dataaccesslayer;
+using nothinbutdotnetstore.specs.utility;
 using NUnit.Framework;
 
 namespace nothinbutdotnetstore.specs.dataaccesslayer
 {
-    class DatabaseGatewaySpecs
+    public class DatabaseGatewaySpecs
     {
-        public class when_creating_a_connection_from_a_legitimate_connection_settings_item
+        public class when_executing_a_legitimate_query_for_a_table
         {
             [Test]
-            public void should_create_a_connection_with_the_right_details()
+            public void should_return_a_data_table()
             {
-                DataTable dt = DatabaseGateway.executequery("SELECT * FROM customers");
-
-                Assert.IsInstanceOf(typeof(DataTable), dt);
+                var sut = new DatabaseGateway(ObjectMother.database_items.create_db_connection_factory());
+                var results = sut.execute_query("select * from customers");
+                Assert.IsNotNull(results);
             }
         }
     }

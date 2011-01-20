@@ -63,6 +63,7 @@
     <Compile Include="infrastructure\TextWriterLoggerSpecs.cs" />
     <Compile Include="infrastructure\LogSpecs.cs" />
     <Compile Include="utility\Concern.cs" />
+    <Compile Include="utility\ObjectMother.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\nothinbutdotnetstore\nothinbutdotnetstore.csproj">

@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Data;
 
 namespace nothinbutdotnetstore.dataaccesslayer
 {
-    public static class DatabaseGateway
+    public class DatabaseGateway
     {
-        public static DataTable executequery(string s)
+        public DatabaseGateway(DatabaseConnectionFactory connection_factory)
         {
-            return null;
-        } 
+        }
+
+        public DataTable execute_query(string command)
+        {
+            return new DataTable();
+        }
     }
 }

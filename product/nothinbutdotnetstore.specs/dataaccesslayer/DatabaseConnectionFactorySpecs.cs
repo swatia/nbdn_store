@@ -2,6 +2,7 @@ using System.Configuration;
 using System.Data.OleDb;
 using System.Data.SqlClient;
 using nothinbutdotnetstore.dataaccesslayer;
+using nothinbutdotnetstore.specs.utility;
 using NUnit.Framework;
 
 namespace nothinbutdotnetstore.specs.dataaccesslayer
@@ -13,8 +14,7 @@ namespace nothinbutdotnetstore.specs.dataaccesslayer
             [Test]
             public void should_create_a_connection_with_the_right_details()
             {
-                var settings = new ConnectionStringSettings("blah",
-                                                            "data source=(local);Initial catalog=blah;Integrated Security=SSPI");
+                var settings = ObjectMother.database_items.create_valid_configuration_element();
                 settings.ProviderName = "System.Data.SqlClient";
 
                 var sut = new DatabaseConnectionFactory(settings);
@@ -28,8 +28,8 @@ namespace nothinbutdotnetstore.specs.dataaccesslayer
             [Test]
             public void should_create_a_connection_that_matches_the_expected_provider_type()
             {
-                var settings = new ConnectionStringSettings("blah",
-                                                            "data source=(local);Initial catalog=blah;Provider=SQLOleDb");
+                var settings = ObjectMother.database_items.create_valid_configuration_element();
+
                 settings.ProviderName = "System.Data.OleDb";
 
                 var sut = new DatabaseConnectionFactory(settings);
