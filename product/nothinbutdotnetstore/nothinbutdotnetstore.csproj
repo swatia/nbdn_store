@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="dataaccesslayer\DatabaseConnectionFactory.cs" />
+    <Compile Include="dataaccesslayer\DatabaseGateway.cs" />
     <Compile Include="dataaccesslayer\InvalidConnectionSettingsException.cs" />
     <Compile Include="infrastructure\logging\Log.cs" />
     <Compile Include="infrastructure\logging\LogFactoryResolver .cs" />
