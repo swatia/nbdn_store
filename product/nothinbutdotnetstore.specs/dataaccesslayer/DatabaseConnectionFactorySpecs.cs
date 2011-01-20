@@ -1,4 +1,5 @@
 using System.Configuration;
+using System.Data.OleDb;
 using System.Data.SqlClient;
 using nothinbutdotnetstore.dataaccesslayer;
 using NUnit.Framework;
@@ -21,6 +22,21 @@ namespace nothinbutdotnetstore.specs.dataaccesslayer
                 var connection = sut.create();
 
                 Assert.IsInstanceOf(typeof(SqlConnection), connection);
+                StringAssert.AreEqualIgnoringCase(settings.ConnectionString, connection.ConnectionString);
+            }
+
+            [Test]
+            public void should_create_a_connection_that_matches_the_expected_provider_type()
+            {
+                var settings = new ConnectionStringSettings("blah",
+                                                            "data source=(local);Initial catalog=blah;Integrated Security=SSPI");
+                settings.ProviderName = "System.Data.OleDbClient";
+
+                var sut = new DatabaseConnectionFactory(settings);
+
+                var connection = sut.create();
+
+                Assert.IsInstanceOf(typeof(OleDbConnection), connection);
                 StringAssert.AreEqualIgnoringCase(settings.ConnectionString, connection.ConnectionString);
             }
         }
