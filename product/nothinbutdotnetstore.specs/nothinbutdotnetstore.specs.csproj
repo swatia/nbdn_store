@@ -57,12 +57,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CalculatorSpecs.cs" />
-    <Compile Include="AssertionExtensions.cs" />
+    <Compile Include="dataaccesslayer\DatabaseConnectionFactorySpecs.cs" />
+    <Compile Include="utility\AssertionExtensions.cs" />
     <Compile Include="infrastructure\TextWriterLoggerSpecs.cs" />
-    <Compile Include="infrastructure\FileLoggerSpecs.cs" />
     <Compile Include="infrastructure\LogSpecs.cs" />
-    <Compile Include="presentation\EditProfilePresenterSpecs.cs" />
     <Compile Include="utility\Concern.cs" />
   </ItemGroup>
   <ItemGroup>

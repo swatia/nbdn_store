@@ -57,13 +57,6 @@
     <Compile Include="views\CustomerSearchView.aspx.designer.cs">
       <DependentUpon>CustomerSearchView.aspx</DependentUpon>
     </Compile>
-    <Compile Include="views\OurEditProfile.aspx.cs">
-      <DependentUpon>OurEditProfile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="views\OurEditProfile.aspx.designer.cs">
-      <DependentUpon>OurEditProfile.aspx</DependentUpon>
-    </Compile>
     <Compile Include="views\Store.master.cs">
       <DependentUpon>Store.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -85,7 +78,6 @@
     <Content Include="views\OrderConfirm.aspx" />
     <Content Include="views\OrderInfo.aspx" />
     <Content Include="views\OrderThanks.aspx" />
-    <Content Include="views\OurEditProfile.aspx" />
     <Content Include="views\ProductBrowser.aspx" />
     <Content Include="views\ProductDetail.aspx" />
     <Content Include="views\ProductSearch.ascx" />
