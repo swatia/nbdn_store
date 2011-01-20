@@ -60,8 +60,10 @@
     <Compile Include="infrastructure\logging\LoggerFactory.cs" />
     <Compile Include="infrastructure\logging\simple\TextWriterLogger.cs" />
     <Compile Include="model\Customer.cs" />
+    <Compile Include="presentation\CustomerBrowserPresenter.cs" />
+    <Compile Include="presentation\CustomerBrowserView.cs" />
     <Compile Include="tasks\CustomerMapper.cs" />
-    <Compile Include="tasks\CustomerRepository.cs" />
+    <Compile Include="tasks\DefaultCustomerRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
