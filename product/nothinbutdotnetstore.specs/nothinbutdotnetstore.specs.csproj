@@ -62,6 +62,7 @@
     <Compile Include="dataaccesslayer\DatabaseGatewaySpecs.cs" />
     <Compile Include="dataaccesslayer\QuerySpecs.cs" />
     <Compile Include="presentation\DepartmentBrowserPresenterSpecs.cs" />
+    <Compile Include="presentation\ItemKeySpecs.cs" />
     <Compile Include="presentation\ProductBrowserPresenterSpecs.cs" />
     <Compile Include="tasks\DepartmentMapperSpecs.cs" />
     <Compile Include="tasks\DepartmentRepositorySpecs.cs" />
