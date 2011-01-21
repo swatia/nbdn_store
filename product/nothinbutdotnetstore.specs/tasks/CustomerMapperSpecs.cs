@@ -27,9 +27,6 @@ namespace nothinbutdotnetstore.specs.tasks
                 Assert.AreEqual(expected.FirstName, actual.FirstName);
                 Assert.AreEqual(expected.LastName, actual.LastName);
                 Assert.AreEqual(expected.Address, actual.Address);
-                Assert.AreEqual(expected.Age, actual.Age);
-                Assert.AreEqual(expected.BirthDay.Date, actual.BirthDay.Date);
-                Assert.AreEqual(expected.IsPreferred, actual.IsPreferred);
             }
         }
     }

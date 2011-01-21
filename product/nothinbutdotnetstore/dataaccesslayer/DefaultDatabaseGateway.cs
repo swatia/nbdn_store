@@ -11,6 +11,11 @@ namespace nothinbutdotnetstore.dataaccesslayer
     {
         DatabaseConnectionFactory connection_factory;
 
+        public DefaultDatabaseGateway():this(new DatabaseConnectionFactory(
+            ))
+        {
+        }
+
         public DefaultDatabaseGateway(DatabaseConnectionFactory connection_factory)
         {
             this.connection_factory = connection_factory;
@@ -22,6 +27,7 @@ namespace nothinbutdotnetstore.dataaccesslayer
             using (var command = connection.CreateCommand())
             {
                 query.prepare(command);
+                connection.Open();
                 using (var reader = command.ExecuteReader())
                 {
                     var table = new DataTable();

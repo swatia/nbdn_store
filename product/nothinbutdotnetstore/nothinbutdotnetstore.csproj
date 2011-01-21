@@ -54,7 +54,6 @@
     <Compile Include="dataaccesslayer\InvalidConnectionSettingsException.cs" />
     <Compile Include="dataaccesslayer\ObjectMother.cs" />
     <Compile Include="dataaccesslayer\Query .cs" />
-    <Compile Include="dataaccesslayer\stubs\StubDatabaseGateway.cs" />
     <Compile Include="dataaccesslayer\Tables.cs" />
     <Compile Include="infrastructure\logging\Log.cs" />
     <Compile Include="infrastructure\logging\LogFactoryResolver .cs" />
@@ -68,6 +67,7 @@
     <Compile Include="tasks\DefaultCustomerRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="dataaccesslayer\stubs\" />
     <Folder Include="tasks\stubs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

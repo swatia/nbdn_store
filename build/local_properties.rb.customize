@@ -18,6 +18,7 @@ class LocalSettings
   }
     settings[:database_path] = db_details.database_path
     settings[:initial_catalog] = db_details.initial_catalog
+    config_pdata
 
     return settings
  end

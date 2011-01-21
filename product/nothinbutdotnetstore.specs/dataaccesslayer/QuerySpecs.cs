@@ -1,8 +1,7 @@
+using System.Data;
 using System.Data.SqlClient;
 using nothinbutdotnetstore.dataaccesslayer;
 using NUnit.Framework;
-using System.Data;
-using nothinbutdotnetstore.specs.utility;
 
 namespace nothinbutdotnetstore.specs.dataaccesslayer
 {
@@ -22,16 +21,18 @@ namespace nothinbutdotnetstore.specs.dataaccesslayer
 
                 Assert.AreEqual(original_query, sut_as_string);
             }
+
             public void should_return_the_value_of_the_raw_sql_when_to_string_is_invoked()
             {
                 original_query = "SELECT * FROM Customers";
                 var sut = new Query(original_query);
 
-                string sut_as_string = sut.ToString();
+                var sut_as_string = sut.ToString();
 
                 Assert.AreEqual(original_query, sut_as_string);
             }
         }
+
         public class when_applying_to_command
         {
             Query query = new Query("SELECT * FROM Customers");

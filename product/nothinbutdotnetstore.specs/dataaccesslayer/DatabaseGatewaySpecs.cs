@@ -17,7 +17,6 @@ namespace nothinbutdotnetstore.specs.dataaccesslayer
             public void setup()
             {
                 sut = new DefaultDatabaseGateway(ObjectMother.database_items.create_db_connection_factory());
-
             }
 
             [Test]
@@ -26,11 +25,11 @@ namespace nothinbutdotnetstore.specs.dataaccesslayer
                 var transaction_scope = new TransactionScope();
                 using (transaction_scope)
                 {
-                    var db_table = new DbTable("Customers");
-                    DbUtility.generate_rows_for(db_table, 100);
+                    var db_table = new DbTable("Products");
+//                    DbUtility.generate_rows_for(db_table, 100);
 
                     results = sut.run(db_table.all_query());
-                    Assert.AreEqual(100,results.Rows.Count);
+                    Assert.IsTrue(results.Rows.Count > 0);
                 }
                 
             }

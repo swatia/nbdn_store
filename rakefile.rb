@@ -43,7 +43,6 @@ solution_file = "solution.sln"
 task :default => [:build_db,"specs:run"]
 
 task :init  => :clean do
-  cp_r "thirdparty/machine.specifications/.","artifacts"
   [Project.specs_dir,Project.report_folder].each{|folder| mkdir folder if ! File.exists?(folder)}
 end
 

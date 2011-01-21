@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
@@ -18,13 +17,12 @@ namespace nothinbutdotnetstore.dataaccesslayer
 
             public static ConnectionStringSettings create_valid_configuration_element()
             {
-                return new ConnectionStringSettings("blah", "data source=(local);integrated security=SSPI",
-                                                    "System.Data.SqlClient");
+                return ConfigurationManager.ConnectionStrings["active"];
             }
 
             public static DefaultDatabaseGateway create_db_gateway()
             {
-                throw new NotImplementedException();
+                return new DefaultDatabaseGateway(create_db_connection_factory());
             }
 
             public static DataTable create_table_of_customers(IEnumerable<Customer> customers)
@@ -34,9 +32,6 @@ namespace nothinbutdotnetstore.dataaccesslayer
                 data_table.Columns.Add(Tables.Customers.FirstName);
                 data_table.Columns.Add(Tables.Customers.LastName);
                 data_table.Columns.Add(Tables.Customers.Address);
-                data_table.Columns.Add(Tables.Customers.Age);
-                data_table.Columns.Add(Tables.Customers.BirthDay);
-                data_table.Columns.Add(Tables.Customers.IsPreferred);
 
                 customers.ToList().ForEach(x => append_to(data_table, x));
                 return data_table;
@@ -45,10 +40,8 @@ namespace nothinbutdotnetstore.dataaccesslayer
             static void append_to(DataTable data_table, Customer customer)
             {
                 data_table.Rows.Add(customer.FirstName, customer.LastName,
-                                    customer.Address,customer.Age,customer.BirthDay,
-                                    customer.IsPreferred);
+                                    customer.Address);
             }
-
         }
 
         public class ReportingModels
@@ -59,10 +52,7 @@ namespace nothinbutdotnetstore.dataaccesslayer
                 {
                     FirstName = number.ToString("FirstName 0"),
                     LastName = number.ToString("LastName 0"),
-                    Address = number.ToString("Address 0"),
-                    Age = number+1,
-                    BirthDay = DateTime.Now.AddDays(number),
-                    IsPreferred = number %2 ==0
+                    Address = number.ToString("Address 0")
                 };
             }
 
