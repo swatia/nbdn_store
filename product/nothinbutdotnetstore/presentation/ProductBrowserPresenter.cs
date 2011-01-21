@@ -1,3 +1,4 @@
+using System.Collections.Specialized;
 using nothinbutdotnetstore.tasks;
 
 namespace nothinbutdotnetstore.presentation
@@ -6,21 +7,34 @@ namespace nothinbutdotnetstore.presentation
     {
         protected ProductsRepository repository { get; set; }
         protected ProductBrowserView view { get; set; }
+        DisplayView display_view;
 
-        public ProductBrowserPresenter(ProductBrowserView view)
-            : this(view, new DefaultProductsRepository())
+        public ProductBrowserPresenter(ProductBrowserView view, DisplayView display_view) : this(display_view,
+                                                                                                 new DefaultProductsRepository
+                                                                                                     (), view)
         {
         }
 
-        public ProductBrowserPresenter(ProductBrowserView view, ProductsRepository product_repository)
+        public ProductBrowserPresenter(DisplayView display_view, ProductsRepository repository, ProductBrowserView view)
         {
-            this.repository = product_repository;
+            this.display_view = display_view;
+            this.repository = repository;
             this.view = view;
         }
 
         public void initialize()
         {
-            view.display(repository.get_products_for_department(int.Parse(view.payload[QueryStrings.DepartmentId])));
+            if (there_is_a_department_in(view.payload))
+            {
+                view.display(repository.get_products_for_department(int.Parse(view.payload[QueryStrings.DepartmentId])));
+                return;
+            }
+            display_view(Views.Department);
+        }
+
+        bool there_is_a_department_in(NameValueCollection payload)
+        {
+            return ! string.IsNullOrEmpty(payload[QueryStrings.DepartmentId]);
         }
     }
 }

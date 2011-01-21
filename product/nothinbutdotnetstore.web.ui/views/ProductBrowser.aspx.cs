@@ -14,7 +14,7 @@ namespace nothinbutdotnetstore.web.ui.views
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            new ProductBrowserPresenter(this).initialize();
+            new ProductBrowserPresenter(this,x => Server.Transfer(x,true)).initialize();
         }
 
         public void display(IEnumerable<Product> products)
