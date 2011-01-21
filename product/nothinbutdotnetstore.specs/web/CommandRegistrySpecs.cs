@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using nothinbutdotnetstore.specs.utility;
@@ -38,9 +37,9 @@ namespace nothinbutdotnetstore.specs.web
             [Test]
             public void should_return_the_command_that_can_process_the_request()
             {
-                Assert.AreEqual(command_that_can_process,result);
-            } 
-        } 
+                Assert.AreEqual(command_that_can_process, result);
+            }
+        }
 
         public class when_finding_a_command_that_can_handle_a_request_and_it_does_not_have_the_command : BaseConcern
         {
@@ -65,7 +64,7 @@ namespace nothinbutdotnetstore.specs.web
             public void should_return_a_missing_command()
             {
                 Assert.IsInstanceOf<MissingRequestCommand>(result);
-            } 
-        } 
+            }
+        }
     }
 }
