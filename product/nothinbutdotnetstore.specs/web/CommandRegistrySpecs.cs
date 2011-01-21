@@ -41,5 +41,31 @@ namespace nothinbutdotnetstore.specs.web
                 Assert.AreEqual(command_that_can_process,result);
             } 
         } 
+
+        public class when_finding_a_command_that_can_handle_a_request_and_it_does_not_have_the_command : BaseConcern
+        {
+            RequestCommand result;
+            CommandRegistry sut;
+            Request request;
+            List<RequestCommand> all_possible;
+
+            protected override void arrange()
+            {
+                request = mock<Request>();
+                all_possible = Enumerable.Range(1, 100).Select(x => mock<RequestCommand>()).ToList();
+                sut = new DefaultCommandRegistry(all_possible);
+            }
+
+            protected override void act()
+            {
+                result = sut.get_the_command_that_can_run(request);
+            }
+
+            [Test]
+            public void should_return_a_missing_command()
+            {
+                Assert.IsInstanceOf<MissingRequestCommand>(result);
+            } 
+        } 
     }
 }
