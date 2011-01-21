@@ -50,19 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="views\CustomerBrowser.aspx.cs">
-      <DependentUpon>CustomerBrowser.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="views\CustomerSearchView.aspx.cs">
-      <DependentUpon>CustomerSearchView.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="views\CustomerSearchView.aspx.designer.cs">
-      <DependentUpon>CustomerSearchView.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="views\ProductBrowser.aspx.cs">
-      <DependentUpon>ProductBrowser.aspx</DependentUpon>
+    <Compile Include="views\DepartmentBrowser.aspx.cs">
+      <DependentUpon>DepartmentBrowser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="views\Store.master.cs">
@@ -75,9 +64,7 @@
     <Content Include="views\BeginCheckout.aspx" />
     <Content Include="views\ChangeCustLogin.aspx" />
     <Content Include="views\ContactUs.aspx" />
-    <Content Include="views\CustomerBrowser.aspx" />
     <Content Include="views\CreateAccount.aspx" />
-    <Content Include="views\CustomerSearchView.aspx" />
     <Content Include="views\Default.aspx" />
     <Content Include="views\DepartmentBrowser.aspx" />
     <Content Include="views\Footer.ascx" />

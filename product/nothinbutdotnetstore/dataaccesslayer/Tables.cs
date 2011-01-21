@@ -1,15 +1,13 @@
-﻿namespace nothinbutdotnetstore.dataaccesslayer
+﻿using System.Data;
+
+namespace nothinbutdotnetstore.dataaccesslayer
 {
     public static class Tables
     {
-        public static class Customers
+        public static class Departments
         {
-            public const string BirthDay = "BirthDay";
-            public const string IsPreferred = "IsPreferred";
-            public const string Age = "Age";
-            public const string FirstName = "FirstName";
-            public const string LastName = "LastName";
-            public const string Address = "Address";
+            public const string Id = "DepartmentId";
+            public const string DepartmentName = "DepartmentName";
         }
     }
 }

@@ -1,15 +1,20 @@
 <%@ MasterType VirtualPath="Store.master" %>
 <%@ Page Language="C#" AutoEventWireup="true" 
-Inherits="System.Web.UI.Page" MasterPageFile="Store.master" %>
+Inherits="nothinbutdotnetstore.web.ui.views.DepartmentBrowser" 
+CodeFile="DepartmentBrowser.aspx.cs"
+MasterPageFile="Store.master" %>
 <asp:Content ID="content" runat="server" ContentPlaceHolderID="childContentPlaceHolder">
     <p class="ListHead">Select An Department</p>
             <table>            
-            <%--each department should go here--%>
+            <% foreach (var department in departments)
+               {%>
             <tr class="ListItem">
                		 <td>                     
-                     The Name Of The Department
+                     <a href="ProductBrowser.aspx?department_id=<%=department.Id%>"><%=department.Name %></a>
                 	</td>
            	 </tr>        
+             <%
+               }%>
            	
 	    </table>            
 </asp:Content>
