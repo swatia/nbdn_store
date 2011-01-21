@@ -60,11 +60,17 @@
     <Compile Include="infrastructure\logging\LoggerFactory.cs" />
     <Compile Include="infrastructure\logging\simple\TextWriterLogger.cs" />
     <Compile Include="model\Department.cs" />
+    <Compile Include="model\Product.cs" />
     <Compile Include="ObjectMother.cs" />
     <Compile Include="presentation\DepartmentBrowserPresenter.cs" />
     <Compile Include="presentation\DepartmentBrowserView.cs" />
+    <Compile Include="presentation\ProductBrowserPresenter.cs" />
+    <Compile Include="presentation\ProductBrowserView.cs" />
+    <Compile Include="tasks\DefaultProductsRepository.cs" />
     <Compile Include="tasks\DepartmentMapper.cs" />
     <Compile Include="tasks\DefaultDepartmentRepository.cs" />
+    <Compile Include="tasks\ProductMapper.cs" />
+    <Compile Include="tasks\ProductsRepository.cs" />
     <Compile Include="tasks\stubs\StubDepartmentRepository.cs" />
   </ItemGroup>
   <ItemGroup>
