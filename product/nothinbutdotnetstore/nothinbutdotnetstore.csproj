@@ -66,6 +66,7 @@
     <Compile Include="presentation\DepartmentBrowserView.cs" />
     <Compile Include="presentation\ProductBrowserPresenter.cs" />
     <Compile Include="presentation\ProductBrowserView.cs" />
+    <Compile Include="presentation\QueryStrings.cs" />
     <Compile Include="tasks\DefaultProductsRepository.cs" />
     <Compile Include="tasks\DepartmentMapper.cs" />
     <Compile Include="tasks\DefaultDepartmentRepository.cs" />

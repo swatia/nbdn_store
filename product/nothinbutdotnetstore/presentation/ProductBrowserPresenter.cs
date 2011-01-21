@@ -12,15 +12,15 @@ namespace nothinbutdotnetstore.presentation
         {
         }
 
-        public ProductBrowserPresenter(ProductBrowserView view, ProductsRepository product_by_dept_repository)
+        public ProductBrowserPresenter(ProductBrowserView view, ProductsRepository product_repository)
         {
+            this.repository = product_repository;
             this.view = view;
-            this.repository = product_by_dept_repository;
         }
 
-        public void initialize(int DepartmentID)
+        public void initialize()
         {
-            view.display(repository.get_products_for_department(DepartmentID));
+            view.display(repository.get_products_for_department(int.Parse(view.payload[QueryStrings.DepartmentId])));
         }
     }
 }

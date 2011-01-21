@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Web.UI;
 using nothinbutdotnetstore.presentation;
 using nothinbutdotnetstore.tasks;
@@ -13,12 +14,17 @@ namespace nothinbutdotnetstore.web.ui.views
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            new ProductBrowserPresenter(this).initialize(int.Parse(Request.QueryString["department_id"]));
+            new ProductBrowserPresenter(this).initialize();
         }
 
         public void display(IEnumerable<Product> products)
         {
             this.details = products;
+        }
+
+        public NameValueCollection payload
+        {
+            get { return Request.Params;}
         }
     }
 }
