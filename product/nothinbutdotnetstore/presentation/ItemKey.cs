@@ -17,9 +17,13 @@ namespace nothinbutdotnetstore.presentation
             return item_key.key_name;
         }
 
+        public override string ToString()
+        {
+            return key_name;
+        }
         public object map_from(NameValueCollection payload)
         {
-            throw new NotImplementedException();
+            return payload[key_name];
         }
     }
 }
