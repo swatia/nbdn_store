@@ -10,13 +10,13 @@ namespace nothinbutdotnetstore.specs.presentation
         {
             string result;
             string key_name;
-            ItemKey sut;
+            ItemKey<long> sut;
 
             [SetUp]
             protected void arrange()
             {
                 key_name = "blah";
-                sut = new ItemKey(key_name);
+                sut = new ItemKey<long>(key_name);
             }
 
             [Test]
@@ -39,11 +39,11 @@ namespace nothinbutdotnetstore.specs.presentation
         } 
         public class when_mapping_from_a_name_value_collection_and_the_value_is_in_the_payload
         {
-            object result;
+            long result;
             string key_name;
-            ItemKey sut;
+            ItemKey<long> sut;
             NameValueCollection payload;
-            int value;
+            long value;
 
             [SetUp]
             protected void arrange()
@@ -53,11 +53,11 @@ namespace nothinbutdotnetstore.specs.presentation
                 payload = new NameValueCollection();
                 payload.Add(key_name, value.ToString());
 
-                sut = new ItemKey(key_name);
+                sut = new ItemKey<long>(key_name);
             }
 
             [Test]
-            public void should_return_the_mapped_value()
+            public void should_return_the_mapped_value_as_the_correct_type_of_value()
             {
                 result = sut.map_from(payload);
 

@@ -3,7 +3,7 @@ using System.Collections.Specialized;
 
 namespace nothinbutdotnetstore.presentation
 {
-    public class ItemKey
+    public class ItemKey<ValueType>
     {
         string key_name;
 
@@ -12,7 +12,7 @@ namespace nothinbutdotnetstore.presentation
             this.key_name = key_name;
         }
 
-        public static implicit operator string(ItemKey item_key)
+        public static implicit operator string(ItemKey<ValueType> item_key)
         {
             return item_key.ToString();
         }
@@ -22,9 +22,9 @@ namespace nothinbutdotnetstore.presentation
             return key_name;
         }
 
-        public object map_from(NameValueCollection payload)
+        public ValueType map_from(NameValueCollection payload)
         {
-            throw new NotImplementedException();
+            return (ValueType) Convert.ChangeType(payload[key_name], typeof(ValueType));
         }
     }
 }
