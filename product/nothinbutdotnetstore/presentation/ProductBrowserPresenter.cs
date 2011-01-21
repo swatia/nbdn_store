@@ -26,7 +26,7 @@ namespace nothinbutdotnetstore.presentation
         {
             if (there_is_a_department_in(view.payload))
             {
-                view.display(repository.get_products_for_department(int.Parse(view.payload[QueryStrings.DepartmentId])));
+                view.display(repository.get_products_for_department(QueryStrings.DepartmentId.map_from(view.payload)));
                 return;
             }
             display_view(Views.Department);

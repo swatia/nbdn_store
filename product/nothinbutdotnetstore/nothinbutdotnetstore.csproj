@@ -59,6 +59,9 @@
     <Compile Include="infrastructure\logging\Logger.cs" />
     <Compile Include="infrastructure\logging\LoggerFactory.cs" />
     <Compile Include="infrastructure\logging\simple\TextWriterLogger.cs" />
+    <Compile Include="infrastructure\Mapper.cs" />
+    <Compile Include="infrastructure\MappingGateway.cs" />
+    <Compile Include="infrastructure\Utilities.cs" />
     <Compile Include="model\Department.cs" />
     <Compile Include="model\Product.cs" />
     <Compile Include="ObjectMother.cs" />
@@ -78,6 +81,7 @@
     <Compile Include="tasks\stubs\StubDepartmentRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="dataaccesslayer\generated\" />
     <Folder Include="dataaccesslayer\stubs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
