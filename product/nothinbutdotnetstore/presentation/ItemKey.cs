@@ -14,7 +14,12 @@ namespace nothinbutdotnetstore.presentation
 
         public static implicit operator string(ItemKey item_key)
         {
-            return item_key.key_name;
+            return item_key.ToString();
+        }
+
+        public override string ToString()
+        {
+            return key_name;
         }
 
         public object map_from(NameValueCollection payload)
