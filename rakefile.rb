@@ -1,6 +1,7 @@
 require 'rake'
 require 'rake/clean'
 require 'fileutils'
+require 'build/project.rb'
 
 ['build/tools/Rake','build'].each do|pattern|
   Dir.glob(File.join(File.dirname(__FILE__),pattern,"*.rb")).each do|item|
@@ -10,7 +11,8 @@ require 'fileutils'
 end
 
 #load settings that differ by machine
-local_settings = LocalSettings.new
+database_details = DbDetails.new
+local_settings = LocalSettings.new(database_details)
 
 COMPILE_TARGET = 'debug'
 
@@ -26,12 +28,19 @@ template_code_dir = File.join('product','templated_code')
 
 #configuration files
 config_files = FileList.new(File.join('product','config','*.template')).select{|fn| ! fn.include?('app.config')}
+
 app_config = TemplateFile.new(File.join('product','config',local_settings[:app_config_template]))
 
+def create_sql_fileset(folder)
+  FileList.new(File.join('product','sql',folder,'**/*.sql'))
+end
+
+sql_runner = SqlRunner.new(database_details)
+#
 #target folders that can be run from VS
 solution_file = "solution.sln"
 
-task :default => ["specs:run"]
+task :default => [:build_db,"specs:run"]
 
 task :init  => :clean do
   cp_r "thirdparty/machine.specifications/.","artifacts"
@@ -48,7 +57,7 @@ task :build_db => :expand_all_template_files do
     sql_runner.process_sql_files(create_sql_fileset('ddl'))
 end
 
-desc 'load the database'
+desc 'load the database with acceptance testing data'
 task :load_data => :build_db do
     sql_runner.process_sql_files(create_sql_fileset('data'))
 end
