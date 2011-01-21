@@ -79,6 +79,10 @@
     <Compile Include="tasks\ProductMapper.cs" />
     <Compile Include="tasks\ProductsRepository.cs" />
     <Compile Include="tasks\stubs\StubDepartmentRepository.cs" />
+    <Compile Include="web\core\object.cs" />
+    <Compile Include="web\core\RawRequestHandler.cs" />
+    <Compile Include="web\core\Request.cs" />
+    <Compile Include="web\core\RequestFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dataaccesslayer\generated\" />

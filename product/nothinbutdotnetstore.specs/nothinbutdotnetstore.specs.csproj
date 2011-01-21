@@ -74,6 +74,7 @@
     <Compile Include="utility\Concern.cs" />
     <Compile Include="utility\DbTable.cs" />
     <Compile Include="utility\DbUtility.cs" />
+    <Compile Include="web\RawRequestHandlerSpecs.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\nothinbutdotnetstore\nothinbutdotnetstore.csproj">

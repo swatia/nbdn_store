@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.IO;
 using System.Linq;
+using System.Web;
 using nothinbutdotnetstore.dataaccesslayer;
 using nothinbutdotnetstore.model;
 
@@ -10,6 +12,24 @@ namespace nothinbutdotnetstore
 {
     public class ObjectMother
     {
+        public static class web_items
+        {
+            public static HttpContext create_http_context()
+            {
+                return new HttpContext(create_request(),create_response());
+            }
+
+            static HttpResponse create_response()
+            {
+                return new HttpResponse(new StringWriter());
+            }
+
+            static HttpRequest create_request()
+            {
+return new HttpRequest("blah.aspx","http://localhost/blah.aspx",String.Empty);
+            }
+        }
+
         public class database_items
         {
             public static DatabaseConnectionFactory create_db_connection_factory()
