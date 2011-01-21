@@ -1,5 +1,5 @@
 class DbDetails 
-  attr_reader :initial_catalog,:database_provider,:web_user_account,:server_name, :sql_tools_path, :osql_exe , :osql_connection_string, :database_path, :osql_args_prior_to_file_name
+  attr_reader :initial_catalog,:database_provider,:web_user_account,:server_name, :sql_tools_path, :osql_exe , :osql_connection_string, :database_path, :osql_args_prior_to_file_name, :config_connectionstring
 
   def initialize
       initialize_db_details
@@ -11,12 +11,12 @@ class DbDetails
    end
 
    def initialize_dot_net_connection_strings
-      @config_connectionstring = "data source=(local);Integrated Security=SSPI;Initial Catalog=#{@initial_catalog}"
+      @database_provider = "System.Data.SqlClient"
+      @config_connectionstring = "data source=#{@server_name};Integrated Security=SSPI;Initial Catalog=#{@initial_catalog}"
    end
 
    def initialize_db_storage_details
   	  @database_path = "C:\\tempfiles\\databases"
-      @database_provider = "System.Data.SqlClient"
    end
 
    def initialize_db_details

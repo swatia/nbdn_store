@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <configuration>
   <appSettings>
-    <add key="ConnectionKey" value="App"/>
+    <add key="connection_settings_key" value="active"/>
   </appSettings>
   <connectionStrings>
-    <add name="App"
+    <add name="active"
 			 connectionString="@config_connectionstring@"
-			 providerName="System.Data.SqlClient"/>
+			 providerName="@config_database_provider@"/>
   </connectionStrings>
   <system.web>
     <compilation debug="true">
