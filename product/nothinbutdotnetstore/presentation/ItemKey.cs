@@ -1,19 +1,17 @@
-using System;
-
 namespace nothinbutdotnetstore.presentation
 {
     public class ItemKey
     {
-        string _keyName;
+        string key_name;
+
         public ItemKey(string key_name)
         {
-            _keyName = key_name;
+            this.key_name = key_name;
         }
 
         public static implicit operator string(ItemKey item_key)
         {
-            return item_key._keyName;
+            return item_key.key_name;
         }
-
     }
 }
