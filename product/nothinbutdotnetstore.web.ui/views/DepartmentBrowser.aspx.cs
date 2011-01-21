@@ -6,19 +6,19 @@ using nothinbutdotnetstore.presentation;
 
 namespace nothinbutdotnetstore.web.ui.views
 {
-    public partial class CustomerBrowser : Page, CustomerBrowserView
+    public partial class DepartmentBrowser : Page,DepartmentBrowserView
     {
-        protected IEnumerable<Customer> details;
+       protected IEnumerable<Department> departments;
 
         protected override void OnLoad(EventArgs e)
         {
+            new DepartmentBrowserPresenter(this).initialize();
             base.OnLoad(e);
-            new CustomerBrowserPresenter(this).initialize();
         }
 
-        public void display(IEnumerable<Customer> customers)
+        public void display(IEnumerable<Department> departments)
         {
-            this.details = customers;
+            this.departments = departments;
         }
     }
 }

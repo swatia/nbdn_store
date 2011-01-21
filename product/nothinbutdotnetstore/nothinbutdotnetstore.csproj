@@ -52,7 +52,6 @@
     <Compile Include="dataaccesslayer\DatabaseConnectionFactory.cs" />
     <Compile Include="dataaccesslayer\DefaultDatabaseGateway.cs" />
     <Compile Include="dataaccesslayer\InvalidConnectionSettingsException.cs" />
-    <Compile Include="dataaccesslayer\ObjectMother.cs" />
     <Compile Include="dataaccesslayer\Query .cs" />
     <Compile Include="dataaccesslayer\Tables.cs" />
     <Compile Include="infrastructure\logging\Log.cs" />
@@ -60,15 +59,16 @@
     <Compile Include="infrastructure\logging\Logger.cs" />
     <Compile Include="infrastructure\logging\LoggerFactory.cs" />
     <Compile Include="infrastructure\logging\simple\TextWriterLogger.cs" />
-    <Compile Include="model\Customer.cs" />
-    <Compile Include="presentation\CustomerBrowserPresenter.cs" />
-    <Compile Include="presentation\CustomerBrowserView.cs" />
-    <Compile Include="tasks\CustomerMapper.cs" />
-    <Compile Include="tasks\DefaultCustomerRepository.cs" />
+    <Compile Include="model\Department.cs" />
+    <Compile Include="ObjectMother.cs" />
+    <Compile Include="presentation\DepartmentBrowserPresenter.cs" />
+    <Compile Include="presentation\DepartmentBrowserView.cs" />
+    <Compile Include="tasks\DepartmentMapper.cs" />
+    <Compile Include="tasks\DefaultDepartmentRepository.cs" />
+    <Compile Include="tasks\stubs\StubDepartmentRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dataaccesslayer\stubs\" />
-    <Folder Include="tasks\stubs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

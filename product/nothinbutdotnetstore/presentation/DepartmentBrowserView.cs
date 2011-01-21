@@ -3,8 +3,8 @@ using nothinbutdotnetstore.model;
 
 namespace nothinbutdotnetstore.presentation
 {
-    public interface CustomerBrowserView
+    public interface DepartmentBrowserView
     {
-        void display(IEnumerable<Customer> customers);
+        void display(IEnumerable<Department> departments);
     }
 }
