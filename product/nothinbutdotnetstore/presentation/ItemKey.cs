@@ -4,14 +4,15 @@ namespace nothinbutdotnetstore.presentation
 {
     public class ItemKey
     {
+        string _keyName;
         public ItemKey(string key_name)
         {
-            throw new NotImplementedException();
+            _keyName = key_name;
         }
 
         public static implicit operator string(ItemKey item_key)
         {
-            throw new NotImplementedException(); 
+            return item_key._keyName;
         }
 
     }
