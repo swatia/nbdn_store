@@ -3,7 +3,6 @@ class LocalSettings
   settings = {
   	:app_config_template => "app.config.xp.template" ,
   	:path_to_runtime_log4net_config => File.join(%w[artifacts log4net.config.xml]),
-  	:initial_catalog => "nothinbutdotnetstore",
   	:asp_net_worker_process => "aspnet_wp.exe",
   	:startup_page => "DepartmentBrowser.aspx",
   	:browser_exe => File.join(ENV['SYSTEMDRIVE'],'program files','mozilla firefox','firefox.exe'),
@@ -14,12 +13,6 @@ class LocalSettings
   	:xunit_report_type => "text",
   	:xunit_show_test_report => true,
   	:debug => "TRUE",
-
   }
-    settings[:database_path] = db_details.database_path
-    settings[:initial_catalog] = db_details.initial_catalog
-    config_pdata
-
-    return settings
  end
 end

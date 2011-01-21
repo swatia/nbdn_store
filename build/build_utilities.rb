@@ -26,6 +26,7 @@ class LocalSettings
   def initialize(db_details)
     @db_details = db_details
     @settings = create_settings_dictionary
+    @db_details.populate(@settings)
   end
 
 
