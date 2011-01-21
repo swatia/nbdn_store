@@ -6,7 +6,7 @@
   <connectionStrings>
     <add name="active"
 			 connectionString="@config_connectionstring@"
-			 providerName="System.Data.SqlClient"/>
+			 providerName="@database_provider@"/>
   </connectionStrings>
   <system.web>
     <compilation debug="true">
