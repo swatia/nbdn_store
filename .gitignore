@@ -14,6 +14,7 @@ _[Rr]e[Ss]harper.*
 *.swp
 *.swo
 local_properties.rb
+connection_details.rb
 /product/docs/Help/*.*
 artifacts
 /product/config/app.config.vista
