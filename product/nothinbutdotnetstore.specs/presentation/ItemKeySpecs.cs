@@ -37,7 +37,7 @@ namespace nothinbutdotnetstore.specs.presentation
             }
 
         } 
-        public class when_mapping_from_a_name_value_collection
+        public class when_mapping_from_a_name_value_collection_and_the_value_is_in_the_payload
         {
             object result;
             string key_name;
@@ -52,7 +52,6 @@ namespace nothinbutdotnetstore.specs.presentation
                 key_name = "blah";
                 payload = new NameValueCollection();
                 payload.Add(key_name, value.ToString());
-
 
                 sut = new ItemKey(key_name);
             }
