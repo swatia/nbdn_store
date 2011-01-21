@@ -1,4 +1,3 @@
-using nothinbutdotnetstore.dataaccesslayer;
 using nothinbutdotnetstore.tasks;
 using NUnit.Framework;
 
@@ -14,11 +13,11 @@ namespace nothinbutdotnetstore.specs.tasks
                 var data_table = ObjectMother.database_items.create_table_of_products();
                 var sut = new ProductMapper();
                 var result = sut.map_from(data_table.Rows[0]);
+
                 Assert.AreEqual("Field Tomatoes sold by the pound, approx. 2 per pound", result.Name);
                 StringAssert.StartsWith("Imported\r\nNutrition Information", result.Description);
                 Assert.AreEqual(1.98, result.Price);
             }
-
-        } 
+        }
     }
 }

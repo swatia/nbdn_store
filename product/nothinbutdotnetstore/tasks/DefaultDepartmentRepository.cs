@@ -36,11 +36,6 @@ namespace nothinbutdotnetstore.tasks
 
         IEnumerable<Department> map_customers_from(DataTable raw_results)
         {
-            //            foreach (var data_row in raw_results.Select())
-            //            {
-            //                yield return customer_mapper.map_from(data_row);
-            //            }
-
             return raw_results.Select().Select(department_mapper.map_from);
         }
     }

@@ -1,23 +1,21 @@
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using nothinbutdotnetstore.dataaccesslayer;
-using nothinbutdotnetstore.model;
 
 namespace nothinbutdotnetstore.tasks
 {
-    public class DefaultProductsByDepartmentRepository : ProductsByDepartmentRepository
+    public class DefaultProductsRepository : ProductsRepository
     {
         protected ProductMapper product_mapper { get; set; }
         protected DatabaseGateway gateway { get; set; }
 
-        public DefaultProductsByDepartmentRepository()
-            : this(new DefaultDatabaseGateway(),new ProductMapper())
+        public DefaultProductsRepository()
+            : this(new DefaultDatabaseGateway(), new ProductMapper())
         {
         }
 
-        public DefaultProductsByDepartmentRepository(DatabaseGateway gateway, ProductMapper product_mapper)
+        public DefaultProductsRepository(DatabaseGateway gateway, ProductMapper product_mapper)
         {
             this.gateway = gateway;
             this.product_mapper = product_mapper;
@@ -25,7 +23,7 @@ namespace nothinbutdotnetstore.tasks
 
         public IEnumerable<Product> get_products_for_department(int department_id)
         {
-            var query = new Query("SELECT * FROM Products WHERE DepartmentID = " + department_id.ToString());
+            var query = new Query("SELECT * FROM Products WHERE DepartmentID = " + department_id);
             return map_products_from(gateway.run(query));
         }
 

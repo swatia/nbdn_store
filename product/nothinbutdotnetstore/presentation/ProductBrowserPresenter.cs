@@ -1,20 +1,18 @@
-using System;
 using nothinbutdotnetstore.tasks;
 
 namespace nothinbutdotnetstore.presentation
 {
     public class ProductBrowserPresenter
     {
-        protected ProductsByDepartmentRepository repository { get; set; }
+        protected ProductsRepository repository { get; set; }
         protected ProductBrowserView view { get; set; }
 
         public ProductBrowserPresenter(ProductBrowserView view)
-            : this(view, new DefaultProductsByDepartmentRepository())
+            : this(view, new DefaultProductsRepository())
         {
         }
 
-
-        public ProductBrowserPresenter(ProductBrowserView view, ProductsByDepartmentRepository product_by_dept_repository)
+        public ProductBrowserPresenter(ProductBrowserView view, ProductsRepository product_by_dept_repository)
         {
             this.view = view;
             this.repository = product_by_dept_repository;

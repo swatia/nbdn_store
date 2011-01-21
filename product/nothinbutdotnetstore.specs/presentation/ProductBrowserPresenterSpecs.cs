@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using nothinbutdotnetstore.model;
 using nothinbutdotnetstore.presentation;
 using nothinbutdotnetstore.tasks;
 using NUnit.Framework;
@@ -15,7 +12,7 @@ namespace nothinbutdotnetstore.specs.presentation
         {
             OurProductBrowserView view;
             IEnumerable<Product> results_to_be_returned_by_the_repository;
-            ProductsByDepartmentRepository default_product_by_dept_repository;
+            ProductsRepository default_product_by_dept_repository;
 
             [Test]
             public void should_tell_the_view_to_display_the_products_retrieved_by_the_products_by_department_repository()
@@ -33,7 +30,7 @@ namespace nothinbutdotnetstore.specs.presentation
         }
     }
 
-    public class OurProductRepository : ProductsByDepartmentRepository
+    public class OurProductRepository : ProductsRepository
     {
         IEnumerable<Product> return_this;
 
@@ -46,7 +43,6 @@ namespace nothinbutdotnetstore.specs.presentation
         {
             return return_this;
         }
-
     }
 
     class OurProductBrowserView : ProductBrowserView
@@ -58,5 +54,4 @@ namespace nothinbutdotnetstore.specs.presentation
             this.products = products;
         }
     }
-
 }

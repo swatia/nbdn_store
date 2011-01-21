@@ -1,5 +1,4 @@
 using nothinbutdotnetstore.tasks;
-using nothinbutdotnetstore.tasks.stubs;
 
 namespace nothinbutdotnetstore.presentation
 {
@@ -9,7 +8,7 @@ namespace nothinbutdotnetstore.presentation
         DepartmentRepository department_repository;
 
         public DepartmentBrowserPresenter(DepartmentBrowserView view) : this(view,
-                                                                         new StubDepartmentRepository())
+                                                                             new DefaultDepartmentRepository())
         {
         }
 

@@ -62,8 +62,11 @@
     <Compile Include="dataaccesslayer\DatabaseGatewaySpecs.cs" />
     <Compile Include="dataaccesslayer\QuerySpecs.cs" />
     <Compile Include="presentation\DepartmentBrowserPresenterSpecs.cs" />
+    <Compile Include="presentation\ProductBrowserPresenterSpecs.cs" />
     <Compile Include="tasks\DepartmentMapperSpecs.cs" />
     <Compile Include="tasks\DepartmentRepositorySpecs.cs" />
+    <Compile Include="tasks\ProductMapperSpecs.cs" />
+    <Compile Include="tasks\ProductsByDepartmentRepositorySpecs.cs" />
     <Compile Include="utility\AssertionExtensions.cs" />
     <Compile Include="infrastructure\TextWriterLoggerSpecs.cs" />
     <Compile Include="infrastructure\LogSpecs.cs" />
