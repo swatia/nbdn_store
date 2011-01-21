@@ -1,3 +1,4 @@
+using System.Collections.Specialized;
 using nothinbutdotnetstore.presentation;
 using NUnit.Framework;
 
@@ -35,6 +36,34 @@ namespace nothinbutdotnetstore.specs.presentation
  
             }
 
+        } 
+        public class when_mapping_from_a_name_value_collection
+        {
+            object result;
+            string key_name;
+            ItemKey sut;
+            NameValueCollection payload;
+            int value;
+
+            [SetUp]
+            protected void arrange()
+            {
+                value = 42;
+                key_name = "blah";
+                payload = new NameValueCollection();
+                payload.Add(key_name, value.ToString());
+
+
+                sut = new ItemKey(key_name);
+            }
+
+            [Test]
+            public void should_return_the_mapped_value()
+            {
+                result = sut.map_from(payload);
+
+                Assert.AreEqual(value,result);
+            }
         } 
     }
 }
