@@ -16,17 +16,17 @@ namespace nothinbutdotnetstore
         {
             public static HttpContext create_http_context()
             {
-                return new HttpContext(create_request(),create_response());
+                return new HttpContext(create_request(), create_response());
             }
 
-            static HttpResponse create_response()
+            public static HttpResponse create_response()
             {
                 return new HttpResponse(new StringWriter());
             }
 
-            static HttpRequest create_request()
+            public static HttpRequest create_request()
             {
-return new HttpRequest("blah.aspx","http://localhost/blah.aspx",String.Empty);
+                return new HttpRequest("blah.aspx", "http://localhost/blah.aspx", String.Empty);
             }
         }
 
@@ -60,7 +60,7 @@ return new HttpRequest("blah.aspx","http://localhost/blah.aspx",String.Empty);
 
             static void append_to(DataTable data_table, Department department)
             {
-                data_table.Rows.Add(department.Name,department.Id);
+                data_table.Rows.Add(department.Name, department.Id);
             }
 
             public static DataTable create_table_of_products()
@@ -78,7 +78,7 @@ return new HttpRequest("blah.aspx","http://localhost/blah.aspx",String.Empty);
                 return new Department
                 {
                     Name = number.ToString("Department 0"),
-                    Id =  number
+                    Id = number
                 };
             }
 

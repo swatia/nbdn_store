@@ -1,4 +1,5 @@
 using System.Web;
+using nothinbutdotnetstore.specs.utility;
 using nothinbutdotnetstore.web.core;
 using NUnit.Framework;
 using Rhino.Mocks;
@@ -7,27 +8,31 @@ namespace nothinbutdotnetstore.specs.web
 {
     public class RawRequestHandlerSpecs
     {
-        public class when_processing_an_incoming_http_context
+        public class when_processing_an_incoming_http_context : BaseConcern
         {
             FrontController front_controller;
             Request request;
-            RawRequestHandler sut;
             RequestFactory request_factory;
+            RawRequestHandler sut;
             HttpContext the_actual_http_context;
 
-            [SetUp]
-            public void setup()
+            protected override void arrange()
             {
-                request = MockRepository.GenerateMock<Request>();
-                request_factory = MockRepository.GenerateMock<RequestFactory>();
+                request = mock<Request>();
+                request_factory = mock<RequestFactory>();
                 the_actual_http_context = ObjectMother.web_items.create_http_context();
 
                 request_factory.Stub(x => x.create_from(the_actual_http_context)).Return(
                     request);
 
-                front_controller = MockRepository.GenerateMock<FrontController>();
+                front_controller = mock<FrontController>();
 
-                sut = new RawRequestHandler(front_controller,request_factory);
+                sut = new RawRequestHandler(front_controller, request_factory);
+            }
+
+            protected override void act()
+            {
+                sut.ProcessRequest(the_actual_http_context);
             }
 
             [Test]
