@@ -64,6 +64,7 @@
     <Compile Include="presentation\CustomerBrowserPresenterSpecs.cs" />
     <Compile Include="tasks\CustomerMapperSpecs.cs" />
     <Compile Include="tasks\CustomerRepositorySpecs.cs" />
+    <Compile Include="tasks\ProductsByDepartmentRepositorySpecs.cs" />
     <Compile Include="utility\AssertionExtensions.cs" />
     <Compile Include="infrastructure\TextWriterLoggerSpecs.cs" />
     <Compile Include="infrastructure\LogSpecs.cs" />

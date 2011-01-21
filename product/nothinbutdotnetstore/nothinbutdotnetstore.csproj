@@ -65,6 +65,8 @@
     <Compile Include="presentation\CustomerBrowserView.cs" />
     <Compile Include="tasks\CustomerMapper.cs" />
     <Compile Include="tasks\DefaultCustomerRepository.cs" />
+    <Compile Include="tasks\Product.cs" />
+    <Compile Include="tasks\ProductsByDepartmentRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="dataaccesslayer\stubs\" />
