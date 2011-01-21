@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using nothinbutdotnetstore.dataaccesslayer;
 using nothinbutdotnetstore.tasks;
 using NUnit.Framework;
 
@@ -12,11 +13,12 @@ namespace nothinbutdotnetstore.specs.tasks
         IEnumerable<Product> products;
 
         [Test]
-        public void should_return_all_of_the_customers_mapped_from_the_customer_data()
+        public void should_return_all_of_the_products_for_a_department()
         {
-            var sut = new DefaultCustomerRepository(ObjectMother.database_items.create_db_gateway(), new CustomerMapper());
-            customers = sut.get_all_customers();
-            Assert.IsTrue(customers.Count() > 0);
+            int DepartmentID = 9814;
+            var sut = new DefaultProductsByDepartmentRepository(ObjectMother.database_items.create_db_gateway(), new ProductMapper());
+            products = sut.get_products_for_department(DepartmentID);
+            Assert.IsTrue(products.Count() > 0);
         }
     }
 }

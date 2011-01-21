@@ -63,9 +63,13 @@
     <Compile Include="model\Customer.cs" />
     <Compile Include="presentation\CustomerBrowserPresenter.cs" />
     <Compile Include="presentation\CustomerBrowserView.cs" />
+    <Compile Include="presentation\ProductBrowserPresenter.cs" />
+    <Compile Include="presentation\ProductBrowserView.cs" />
     <Compile Include="tasks\CustomerMapper.cs" />
     <Compile Include="tasks\DefaultCustomerRepository.cs" />
-    <Compile Include="tasks\Product.cs" />
+    <Compile Include="model\Product.cs" />
+    <Compile Include="tasks\ProductMapper.cs" />
+    <Compile Include="tasks\DefaultProductsByDepartmentRepository.cs" />
     <Compile Include="tasks\ProductsByDepartmentRepository.cs" />
   </ItemGroup>
   <ItemGroup>

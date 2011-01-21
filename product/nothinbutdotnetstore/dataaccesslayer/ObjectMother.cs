@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
@@ -41,6 +42,13 @@ namespace nothinbutdotnetstore.dataaccesslayer
             {
                 data_table.Rows.Add(customer.FirstName, customer.LastName,
                                     customer.Address);
+            }
+
+            public static DataTable create_table_of_products()
+            {
+                var query = new Query("SELECT * FROM Products ORDER BY ProductID");
+                var gateway = create_db_gateway();
+                return gateway.run(query);
             }
         }
 
