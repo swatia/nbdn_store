@@ -5,9 +5,8 @@ namespace nothinbutdotnetstore.web.core
 {
     public class RawRequestHandler : IHttpHandler
     {
-        protected RequestFactory request_factory { get; set; }
-        protected FrontController front_controller { get; set; }
-
+        FrontController front_controller;
+        RequestFactory request_factory;
 
         public RawRequestHandler(FrontController front_controller, RequestFactory request_factory)
         {
@@ -17,12 +16,12 @@ namespace nothinbutdotnetstore.web.core
 
         public void ProcessRequest(HttpContext context)
         {
-            front_controller.handle(request_factory.create_from(context));
+            front_controller.handle(request_factory.create_a_request_from(context));
         }
 
         public bool IsReusable
         {
-            get { throw new NotImplementedException(); }
+            get { return true; }
         }
     }
 }

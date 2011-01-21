@@ -22,7 +22,7 @@ namespace nothinbutdotnetstore.specs.web
                 request_factory = mock<RequestFactory>();
                 the_actual_http_context = ObjectMother.web_items.create_http_context();
 
-                request_factory.Stub(x => x.create_from(the_actual_http_context)).Return(
+                request_factory.Stub(x => x.create_a_request_from(the_actual_http_context)).Return(
                     request);
 
                 front_controller = mock<FrontController>();
